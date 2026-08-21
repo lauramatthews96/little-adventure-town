@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+---
+
+<BaseLayout page="thanks" noindex>
+  <article class="mx-auto max-w-3xl px-4 py-10 md:px-6 md:py-16">
+    <PageHero eyebrow="Got it" accent="meadow" mark="★">
+      <h1 slot="title">Thanks for your enquiry.</h1>
+      <p>
+        We’ve got your message and we’ll get back to you as soon as we can. If you wanted a play sitting, that’s on the booking page, this form isn’t a booking.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="btn btn-primary btn-book-now" href="/book">BOOK NOW!</a>
+        <a class="btn btn-secondary" href="/">Back to the town</a>
+      </div>
+    </PageHero>
+  </article>
+</BaseLayout>

@@ -8,9 +8,17 @@ interface Props {
 const { formName, submitLabel = "Send message", extraFields = "none" } = Astro.props;
 ---
 
-<form name={formName} method="POST" action="/contact?sent=1" data-netlify="true" netlify-honeypot="bot-field" class="story-card" style="--story: var(--color-pink)">
+<form
+  name={formName}
+  method="POST"
+  action="/thanks"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="story-card"
+  style="--story: var(--color-pink)"
+  data-enquiry-form
+>
   <input type="hidden" name="form-name" value={formName} />
-  <input type="hidden" name="_redirect" value="/contact?sent=1" />
   <p class="honeypot">
     <label>
       Don’t fill this in
@@ -57,6 +65,19 @@ const { formName, submitLabel = "Send message", extraFields = "none" } = Astro.p
     <textarea id={`${formName}-message`} name="message" required></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary">{submitLabel}</button>
+  <button type="submit" class="btn btn-primary" data-enquiry-submit>{submitLabel}</button>
   <p class="mt-3 text-sm text-navy-muted">We’ll only use this to reply to your enquiry.</p>
 </form>
+
+<script>
+  document.querySelectorAll("[data-enquiry-form]").forEach((form) => {
+    if (!(form instanceof HTMLFormElement)) return;
+    form.addEventListener("submit", () => {
+      const button = form.querySelector("[data-enquiry-submit]");
+      if (button instanceof HTMLButtonElement) {
+        button.disabled = true;
+        button.textContent = "Sending...";
+      }
+    });
+  });
+</script>

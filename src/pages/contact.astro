@@ -6,8 +6,6 @@ import { formatAddress, isToConfirm, site } from "../config/site";
 import ToConfirm from "../components/ToConfirm.astro";
 import FacebookIcon from "../components/FacebookIcon.astro";
 import InstagramIcon from "../components/InstagramIcon.astro";
-
-const sent = Astro.url.searchParams.get("sent") === "1";
 ---
 
 <BaseLayout page="contact">
@@ -18,14 +16,6 @@ const sent = Astro.url.searchParams.get("sent") === "1";
         Questions about parties, SEND, or just wanting to wave. If you’re booking a sitting, <a class="font-bold underline underline-offset-2" href="/book">go to the booking page</a>. This form isn’t a booking.
       </p>
     </PageHero>
-
-    {
-      sent && (
-        <p class="mt-6 rounded-[1.25rem] border-[3px] border-meadow bg-mint p-4 font-bold" role="status">
-          Thank you. We’ve got your message and we’ll reply as soon as we can.
-        </p>
-      )
-    }
 
     <div class="contact-grid">
       <section class="story-card" style="--story: var(--color-teal)" aria-labelledby="direct-heading">

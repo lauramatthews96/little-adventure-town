@@ -777,6 +777,11 @@ export const pages = {
     description:
       "Contact Little Adventure Town in Bishop Auckland. Enquiries, quieter sittings, and social links.",
   },
+  thanks: {
+    path: "/thanks",
+    title: "Thanks | Little Adventure Town",
+    description: "We’ve got your enquiry and we’ll get back to you as soon as we can.",
+  },
   privacy: {
     path: "/privacy",
     title: "Privacy policy | Little Adventure Town",
