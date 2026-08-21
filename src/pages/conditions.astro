@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import ToConfirm from "../components/ToConfirm.astro";
+import { isToConfirm, site } from "../config/site";
+---
+
+<BaseLayout page="conditions">
+  <article class="prose-page mx-auto px-4 py-10 md:px-6 md:py-16">
+    <PageHero eyebrow="Before you visit" accent="gold" mark="★">
+      <h1 slot="title">Conditions of entry</h1>
+      <p>
+        Welcome to Little Adventure Town. There are a few things we need you to agree to before you visit, so that everyone stays safe and has a lovely time. Last updated 21 August 2026.
+      </p>
+    </PageHero>
+
+    <h2>Looking after your little ones</h2>
+    <p>
+      Children remain the responsibility of their parent or carer at all times while they are in our building. Please stay with your child and keep them in sight throughout your session.
+    </p>
+    <p>
+      Our team are here to help, to keep the place safe and to look after the equipment, but they are not able to supervise children on your behalf.
+    </p>
+    <p>
+      One adult can look after up to {isToConfirm(site.policies.childrenPerAdult) ? <ToConfirm /> : site.policies.childrenPerAdult} children. If you are bringing more than that, please bring another grown up along with you.
+    </p>
+
+    <h2>Playing safely</h2>
+    <p>
+      Please make sure your child plays sensibly and uses everything the way it is meant to be used.
+    </p>
+    <p>
+      Socks must be worn by everyone in the play areas, grown ups included. No shoes, food, drink or sharp objects are allowed in there.
+    </p>
+    <p>
+      If your child is unwell, or has had sickness or diarrhoea in the last {site.policies.sicknessWindowHours} hours, please move your booking to another day rather than coming in. We know it is a nuisance, but it protects everybody.
+    </p>
+    <p>
+      Please tell a member of the team about any allergies, medical conditions or additional needs so that we can look after your child properly.
+    </p>
+
+    <h2>How active play works</h2>
+    <p>
+      Active play carries the ordinary everyday risk of bumps, trips and scrapes, and by visiting you accept that this is part of it.
+    </p>
+    <p>
+      This does not affect your legal rights, and nothing here limits our responsibility for injury caused by our own negligence or by any failure on our part to keep the premises safe and properly maintained.
+    </p>
+
+    <h2>Your belongings</h2>
+    <p>
+      Please keep an eye on your things. We cannot accept responsibility for personal belongings that are lost, damaged or taken while you are with us.
+    </p>
+
+    <h2>Photographs</h2>
+    <p>
+      We sometimes take photographs and videos for our Facebook and Instagram pages. If you would rather your child was not included, just tell a member of the team when you arrive and we will make sure they are not. How we use images, and how to ask for one to be taken down, is in the <a class="font-bold underline underline-offset-2" href="/privacy">privacy policy</a>.
+    </p>
+
+    <h2>Being kind to each other</h2>
+    <p>
+      We ask everyone to be kind to our team and to the other families visiting. We reserve the right to ask anyone to leave, without a refund, if their behaviour is unsafe or unpleasant towards others.
+    </p>
+
+    <h2>If we need to close</h2>
+    <p>
+      If we have to cancel a session at our end, you will receive a full refund or a move to another day, whichever suits you best.
+    </p>
+
+    <p class="mt-8">
+      Thanks for taking the time to read all that. Now go and have a brilliant time.
+    </p>
+    <p>
+      Bookings are also covered by the <a class="font-bold underline underline-offset-2" href="/booking-terms">booking terms</a> and the <a class="font-bold underline underline-offset-2" href="/house-rules">house rules</a>.
+    </p>
+  </article>
+</BaseLayout>

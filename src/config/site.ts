@@ -141,6 +141,8 @@ export const site = {
       "Give us at least 24 hours' notice and we'll move you to another day or put a credit on your account. Later than that we can't refund or move you, because the space has been held. If something has genuinely gone wrong, still get in touch.",
     socksRequired: true,
     supervisionRequired: true,
+    childrenPerAdult: TO_CONFIRM,
+    sicknessWindowHours: "48",
     ownFood:
       "Please don't bring food in where you can help it, as the café helps keep the doors open. Food for an allergy, medical need, specific diet or disability is absolutely fine. Baby food, bottles and milk are always welcome.",
     allergen: "Tell us when you book, and have a word with the team when you arrive.",
@@ -244,12 +246,14 @@ export const nav = [
   { href: "/parties", label: "Parties" },
   { href: "/faq", label: "FAQs" },
   { href: "/visit", label: "Visit us" },
+  { href: "/contact", label: "Contact us" },
 ] as const;
 
 export const footerNav = [
   { href: "/faq", label: "FAQs" },
   { href: "/contact", label: "Contact" },
   { href: "/house-rules", label: "House rules" },
+  { href: "/conditions", label: "Conditions of entry" },
   { href: "/booking-terms", label: "Booking terms" },
   { href: "/privacy", label: "Privacy" },
 ] as const;
@@ -788,5 +792,11 @@ export const pages = {
     title: "House rules | Little Adventure Town",
     description:
       "House rules for Little Adventure Town in Bishop Auckland: socks, supervision, food and allergen policy, buggies.",
+  },
+  conditions: {
+    path: "/conditions",
+    title: "Conditions of entry | Little Adventure Town",
+    description:
+      "Conditions of entry for Little Adventure Town in Bishop Auckland. Supervision, socks, illness, photographs and how we keep play safe.",
   },
 } as const;

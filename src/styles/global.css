@@ -576,7 +576,7 @@ body.has-sticky-book {
   display: none;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .nav-panel:not([hidden]) {
     display: flex;
     flex-direction: column;
