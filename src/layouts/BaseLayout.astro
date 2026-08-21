@@ -29,7 +29,7 @@ const {
 } = Astro.props;
 
 const canonical = new URL(path, site.url).toString();
-const ogImage = new URL(hero.image, site.url).toString();
+const ogImage = new URL(hero.shareImage, site.url).toString();
 const showSticky = stickyCta && path !== "/book";
 ---
 

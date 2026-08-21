@@ -32,7 +32,7 @@ const sent = Astro.url.searchParams.get("sent") === "1";
           Instagram: <a class="font-bold underline underline-offset-2" href={site.social.instagramUrl}>{site.social.instagramHandle}</a>
         </li>
         <li>
-          Facebook: <a class="font-bold underline underline-offset-2" href={site.social.facebookUrl}>{site.social.facebookName}</a>
+          Facebook: <a class="font-bold underline underline-offset-2" href={site.social.facebookUrl} target="_blank" rel="noopener noreferrer">{site.social.facebookName}</a>
         </li>
       </ul>
       <p class="mt-3">{site.contact.contactNote}</p>

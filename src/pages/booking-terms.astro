@@ -1,13 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ToConfirm from "../components/ToConfirm.astro";
 import { childPriceLine, site } from "../config/site";
 ---
 
 <BaseLayout page="bookingTerms">
   <article class="prose-page mx-auto px-4 py-10 md:px-6 md:py-16">
     <h1>Booking terms</h1>
-    <p class="mt-4 text-navy-muted">These cover play sessions booked through this website and Bookwhen. Last updated 20 August 2026.</p>
+    <p class="mt-4 text-navy-muted">These cover play sessions booked through this website and Bookwhen. Last updated 21 August 2026.</p>
 
     <h2>The booking</h2>
     <p>
@@ -24,12 +23,12 @@ import { childPriceLine, site } from "../config/site";
 
     <h2>Cancellations and refunds</h2>
     <p>
-      Policy wording: <ToConfirm value={site.policies.cancellation} />. Until that is written, do not assume a refund, a credit, or a free move. The confirmed wording will appear on this page and in Bookwhen at checkout.
+      {site.policies.cancellation} If we have to cancel, you will get a full refund or a move to another day, whichever suits you best.
     </p>
 
     <h2>Arriving and late</h2>
     <p>
-      Please arrive for the start of your sitting. We cannot extend a session because the next one needs the rooms. If you miss the sitting entirely, the cancellation policy (once confirmed) applies.
+      Come when you can and we will get you straight in. We cannot stretch the session at the other end, because the next sitting will be waiting.
     </p>
 
     <h2>Our house, our rules</h2>

@@ -137,12 +137,14 @@ export const site = {
   },
 
   policies: {
-    cancellation: TO_CONFIRM,
+    cancellation:
+      "Give us at least 24 hours' notice and we'll move you to another day or put a credit on your account. Later than that we can't refund or move you, because the space has been held. If something has genuinely gone wrong, still get in touch.",
     socksRequired: true,
     supervisionRequired: true,
-    ownFood: TO_CONFIRM,
-    allergen: TO_CONFIRM,
-    buggies: TO_CONFIRM,
+    ownFood:
+      "Please don't bring food in where you can help it, as the café helps keep the doors open. Food for an allergy, medical need, specific diet or disability is absolutely fine. Baby food, bottles and milk are always welcome.",
+    allergen: "Tell us when you book, and have a word with the team when you arrive.",
+    buggies: "Yes. Bring the pushchair in and park it up while you're with us.",
   },
 
   classes: [
@@ -240,11 +242,12 @@ export const nav = [
   { href: "/book", label: "Book" },
   { href: "/whats-inside", label: "What’s inside" },
   { href: "/parties", label: "Parties" },
+  { href: "/faq", label: "FAQs" },
   { href: "/visit", label: "Visit us" },
 ] as const;
 
 export const footerNav = [
-  { href: "/faq", label: "FAQ" },
+  { href: "/faq", label: "FAQs" },
   { href: "/contact", label: "Contact" },
   { href: "/house-rules", label: "House rules" },
   { href: "/booking-terms", label: "Booking terms" },
@@ -276,8 +279,9 @@ export type Zone = {
 };
 
 export const hero = {
-  image: "/images/zones/town-hero.jpg",
-  alt: "The castle, volcano and yellow submarine along the grass at Little Adventure Town in Bishop Auckland.",
+  image: "/images/zones/town-hero.webp",
+  shareImage: "/images/zones/town-hero-og.jpg",
+  alt: "Six handmade rooms at Little Adventure Town: the farm barn, dinosaur volcano, the beach, the castle, under the sea, and sensory space.",
 };
 
 export const zones: Zone[] = [
@@ -451,62 +455,219 @@ export const zones: Zone[] = [
   },
 ];
 
-export const faqs = [
+export const faqGroups = [
   {
     id: "booking",
-    question: "Do I need to book?",
-    answer:
-      "Yes please. Book a sitting before you come. There's no walk-in play, which is how we keep it from turning into a crush.",
+    title: "Booking",
+    blurb: "How to get a sitting, what it costs, and what happens if plans change.",
+    accent: "pink",
+    items: [
+      {
+        id: "do-i-have-to-book",
+        question: "Do I have to book, or can I just turn up?",
+        answer: `You'll need to book, sorry. We only take ${site.play.maxChildren} children per session so that it stays calm and everyone gets a proper go at everything, which does mean we can't take anyone on the door. The upside is you'll never turn up to find it heaving.`,
+      },
+      {
+        id: "more-than-one-child",
+        question: "How do I book for more than one child?",
+        answer:
+          "Just change the quantity when you're booking and add a place for each little one coming with you. No need to go through it all twice.",
+      },
+      {
+        id: "how-much",
+        question: "How much is it?",
+        answer: `It's ${site.play.pricePerChild} per child for a ninety minute session.`,
+      },
+      {
+        id: "grown-ups",
+        question: "Do grown ups need a ticket?",
+        answer: "No, grown ups come in free. You only pay for the children.",
+      },
+      {
+        id: "babies",
+        question: "What about babies who aren't walking yet?",
+        answer: `It's ${site.play.pricePerChild} for every child, babies included. We've a lovely sensory area that's just right for the littlest ones, so even if they're not toddling about yet there's plenty for them to look at, touch and get stuck into.`,
+      },
+      {
+        id: "how-far-ahead",
+        question: "How far ahead can I book?",
+        answer:
+          "Sessions go up several weeks in advance, so you can sort a rainy Tuesday now or plan something for the school holidays. Weekends do tend to go first.",
+      },
+      {
+        id: "if-i-cancel",
+        question: "What if I need to cancel?",
+        answer:
+          "Life with little ones rarely goes to plan. Let us know at least 24 hours before and we'll happily move you to another day or pop a credit on your account. Any later than that and we can't refund or move you, simply because the space has been held for you and it's usually too late for anyone else to take it. If something's genuinely gone wrong, do still get in touch and we'll see what we can do.",
+      },
+      {
+        id: "if-we-cancel",
+        question: "What if you have to cancel?",
+        answer: "You'll get a full refund or a move to another day, whichever suits you best.",
+      },
+    ],
   },
   {
-    id: "price",
-    question: "How much is a play session?",
-    answer: site.play.offer.active
-      ? `For ${site.play.offer.period} a 90-minute session is ${site.play.pricePerChild} a child. Adults go free.`
-      : `${site.play.pricePerChild} per child for a 90-minute session. Adults go free.`,
+    id: "your-visit",
+    title: "Your visit",
+    blurb: "Opening times, socks, pushchairs, and what the morning actually looks like.",
+    accent: "meadow",
+    items: [
+      {
+        id: "when-open",
+        question: "When are you open?",
+        answer: `${site.hours.days}, with three sessions a day. They run ${site.play.sessions.map((s) => s.label).join(", ").replace(/, ([^,]*)$/, ", and $1")}. ${site.hours.closed}.`,
+      },
+      {
+        id: "what-ages",
+        question: "What ages is it for?",
+        answer:
+          "It's built for babies, toddlers and little ones who aren't at school yet, so roughly nought to five. Older brothers and sisters are welcome to come along too, but it's the little ones we've designed it all around.",
+      },
+      {
+        id: "what-to-bring",
+        question: "What should we bring?",
+        answer:
+          "Socks for everyone, grown ups included, and that's honestly about it. There's a café on site so you don't need to pack drinks and snacks unless it's something specific for your child.",
+      },
+      {
+        id: "do-we-need-socks",
+        question: "Do we really need socks?",
+        answer:
+          "We really do, for everyone going into the play areas. It keeps things clean and it keeps everyone safe. Pop a spare pair in your bag if you're anything like us and forget.",
+      },
+      {
+        id: "running-late",
+        question: "What if we're running late?",
+        answer:
+          "Just come when you can and we'll get you straight in. We can't stretch the session at the other end though, because the next lot will be waiting, so it's worth setting off with a few minutes spare.",
+      },
+      {
+        id: "stay-with-child",
+        question: "Do I stay with my child?",
+        answer:
+          "Yes please. Children stay with their grown up throughout. Our team are here to help and to keep everything safe, but they can't supervise little ones for you.",
+      },
+      {
+        id: "somewhere-to-sit",
+        question: "Is there anywhere to sit?",
+        answer:
+          "There is, and there's a café doing hot drinks, cold drinks and something nice to go with it. Get a brew, sit yourself down and watch them wear themselves out.",
+      },
+      {
+        id: "pushchair",
+        question: "Can we bring the pushchair in?",
+        answer: "Course you can. Bring it in with you and there's room to park it up while you're with us.",
+      },
+    ],
   },
   {
-    id: "socks",
-    question: "Do we need to wear socks?",
-    answer:
-      "Yes. Shoes off, socks on for everyone on the play floor, grown-ups too.",
+    id: "food-and-drink",
+    title: "Food and drink",
+    blurb: "What's on in the café, packed lunches, and allergies.",
+    accent: "gold",
+    items: [
+      {
+        id: "whats-on-in-the-cafe",
+        question: "What's on in the café?",
+        answer:
+          "Toasties, paninis, cakes, scones and a few sweet treats, along with hot and cold drinks. Enough to keep the grown ups going and to sort out a hungry little one halfway through.",
+      },
+      {
+        id: "own-food",
+        question: "Can we bring our own food?",
+        answer:
+          "We'd ask you not to bring food in with you where you can help it, as the café is a big part of how we keep the doors open. That said, we completely understand that some children need their own food, whether that's an allergy, a medical need, a specific dietary requirement or a disability, and that's absolutely fine with us. Baby food, bottles and milk are always welcome, no need to ask.",
+      },
+      {
+        id: "allergies",
+        question: "My child has allergies. What should I do?",
+        answer: "Tell us when you book, and have a word with the team when you arrive. We'd much rather know so we can look after them properly.",
+      },
+    ],
   },
   {
-    id: "adults",
-    question: "Are adults free?",
-    answer: "Yes, grown-ups go free. You just need to stay with your child the whole sitting.",
+    id: "accessibility",
+    title: "Accessibility and additional needs",
+    blurb: "SEND, quieter visits, and getting around the building.",
+    accent: "teal",
+    items: [
+      {
+        id: "send-friendly",
+        question: "Are you SEND friendly?",
+        answer:
+          "Very much so, and it's something we care an awful lot about. We keep numbers low so it never gets overwhelming, and we've built a calm Sensory Space for when anyone needs a quieter moment. Dedicated evening sessions for children aged five and over are on the way. Keep an eye on Facebook and we'll shout as soon as dates are sorted.",
+      },
+      {
+        id: "busy-places",
+        question: "My child finds busy places difficult. Can you help?",
+        answer:
+          "Course we can, just tell us when you book. There's a box on the booking form for exactly this. We can let you know which sessions are usually quieter, talk you through what to expect before you come, or make any small change that would help. Nothing is too much trouble and you're never being a nuisance by asking.",
+      },
+      {
+        id: "building-accessible",
+        question: "Is the building accessible?",
+        answer:
+          "It is. We're all on the ground floor with no stairs to worry about, so there's nothing to lug a pushchair up or down.",
+      },
+      {
+        id: "baby-changing",
+        question: "Do you have baby changing?",
+        answer: "We do.",
+      },
+      {
+        id: "look-round",
+        question: "Can we come and have a look round before booking?",
+        answer:
+          'Give us a <a href="/contact">shout</a> and we\'ll sort something out. If having a proper look at the place first would make the visit easier for your child, we\'re more than happy to arrange it.',
+      },
+    ],
   },
   {
-    id: "food",
-    question: "Can we bring our own food?",
-    answer:
-      `${site.cafe.walkInNote} Whether you can bring your own food, and the allergen policy, is still to confirm. If your child has an allergy, tell us when you book or use the contact form so we can plan.`,
+    id: "parties-and-classes",
+    title: "Parties and classes",
+    blurb: "Birthdays now, classes as soon as the dates are in.",
+    accent: "coral",
+    items: [
+      {
+        id: "birthday-parties",
+        question: "Do you do birthday parties?",
+        answer:
+          'We do, and we\'d love to have you. Have a look at our <a href="/parties">birthday page</a> for what\'s included and how to get booked in.',
+      },
+      {
+        id: "what-classes",
+        question: "What classes do you run?",
+        answer:
+          "Classes are on the way. We're planning baby sensory, music and movement, toddler sensory sessions and evening SEND sessions for children aged five and over. Keep your eyes peeled on Facebook and we'll shout as soon as dates are sorted.",
+      },
+    ],
   },
   {
-    id: "cancellations",
-    question: "What is the cancellation policy?",
-    answer:
-      "To confirm before opening. The wording will live on the booking terms page and in Bookwhen at checkout. We will not invent a policy here in the meantime.",
-  },
-  {
-    id: "buggies",
-    question: "Can we bring a buggy?",
-    answer:
-      "Buggy storage on arrival is still to confirm. We are on a town-centre high street, so if you can travel light, do. We will spell out where buggies live as soon as the fit-out is finished.",
-  },
-  {
-    id: "send",
-    question: "Is it suitable for SEND children?",
-    answer:
-      "We're SEND friendly, with sensory play, and sittings are kept small. Sensory Space is part of an ordinary sitting, not a cupboard off to the side. If you need a quieter time, ask when you book or drop us a message and we'll be honest about what we can do.",
-  },
-  {
-    id: "ages",
-    question: "What ages is it for?",
-    answer:
-      "Play sessions are for babies, toddlers and pre-school children. If you're not sure whether a sitting will suit your child, get in touch and we'll tell you honestly.",
+    id: "anything-else",
+    title: "Anything else",
+    blurb: "How to find us, and how to get hold of us.",
+    accent: "navy",
+    items: [
+      {
+        id: "get-hold",
+        question: "How do I get hold of you?",
+        answer: `The quickest way is a message on <a href="${site.social.facebookUrl}" target="_blank" rel="noopener noreferrer">Facebook</a>, where we're ${site.social.facebookName}. You'll find us on Instagram as well at <a href="${site.social.instagramUrl}">${site.social.instagramHandle}</a>. If you'd rather email, we're at <a href="mailto:${site.contact.email}">${site.contact.email}</a>.`,
+      },
+      {
+        id: "where-exactly",
+        question: "Where exactly are you?",
+        answer: `${site.address.line1}, ${site.address.locality}, ${site.address.postcode}, right in the town centre. You won't miss us, we're the bright one.`,
+      },
+    ],
   },
 ] as const;
+
+export const faqs = faqGroups.flatMap((group) => group.items);
+
+export function faqPlainAnswer(answer: string): string {
+  return answer.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+}
 
 export function bookwhenPageUrl(): string {
   return site.booking.pageUrl;
@@ -566,9 +727,9 @@ export const pages = {
   },
   faq: {
     path: "/faq",
-    title: "FAQ | Little Adventure Town, Bishop Auckland",
+    title: "FAQs | Little Adventure Town, Bishop Auckland",
     description:
-      "Socks, adults, food, cancellations, buggies and booking. Practical answers for Little Adventure Town in Bishop Auckland.",
+      "Booking, socks, the café, SEND, parties and how to find us. Straight answers for Little Adventure Town in Bishop Auckland.",
   },
   contact: {
     path: "/contact",

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PhotoFrame from "../components/PhotoFrame.astro";
 import ZoneStreet from "../components/ZoneStreet.astro";
 import PlaySessions from "../components/PlaySessions.astro";
 import DealBadge from "../components/DealBadge.astro";
@@ -54,15 +53,16 @@ import { site, hero } from "../config/site";
           <a class="btn btn-secondary" href="/whats-inside">See what’s inside</a>
         </div>
       </div>
-      <PhotoFrame
-        src={hero.image}
-        placeholder={hero.image}
-        alt={hero.alt}
-        label="Little Adventure Town"
-        size="1024 × 768"
-        aspect="4 / 3"
-        eager
-      />
+      <div class="hero-photo">
+        <img
+          src={hero.image}
+          alt={hero.alt}
+          width="1800"
+          height="1591"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
     </div>
   </section>
 
