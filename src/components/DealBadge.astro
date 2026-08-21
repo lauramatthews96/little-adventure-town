@@ -1,0 +1,16 @@
+---
+import { site } from "../config/site";
+
+interface Props {
+  onNavy?: boolean;
+}
+
+const { onNavy = false } = Astro.props;
+const offer = site.play.offer;
+---
+
+{
+  offer.active && (
+    <span class:list={["deal-badge", onNavy && "deal-badge-on-navy"]}>{offer.label}</span>
+  )
+}

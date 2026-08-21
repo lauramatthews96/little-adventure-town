@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Photo placeholder  The castle</title>
+  <desc id="desc">Replace with a photograph of the castle turrets, arched doorways and tea party table. Recommended size 1600 ù 1000.</desc>
+  <rect width="1600" height="1000" fill="#F3D5DE"/>
+  <rect x="430" y="360" width="740" height="520" fill="#FFFcf6"/>
+  <rect x="380" y="220" width="120" height="660" fill="#FFFcf6"/>
+  <rect x="1100" y="220" width="120" height="660" fill="#FFFcf6"/>
+  <polygon points="360,220 440,140 520,220" fill="#B3265A"/>
+  <polygon points="1080,220 1160,140 1240,220" fill="#B3265A"/>
+  <path d="M700 880 V640 Q800 520 900 640 V880" fill="#1A2744"/>
+  <text x="800" y="120" text-anchor="middle" fill="#1A2744" font-family="Georgia, serif" font-size="64">The castle</text>
+  <text x="800" y="980" text-anchor="middle" fill="#1A2744" font-family="system-ui, sans-serif" font-size="24">PHOTO PLACEHOLDER ù turrets, arches, tea party table ù 1600 ù 1000</text>
+</svg>

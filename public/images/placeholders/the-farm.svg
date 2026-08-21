@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Photo placeholder  The farm</title>
+  <desc id="desc">Replace with a photograph of the red barn with white trim. Recommended size 1600 ù 1000.</desc>
+  <rect width="1600" height="1000" fill="#CDE8C8"/>
+  <rect y="780" width="1600" height="220" fill="#8A6A3B"/>
+  <polygon points="420,780 800,280 1180,780" fill="#A33B2C"/>
+  <rect x="500" y="520" width="600" height="260" fill="#A33B2C"/>
+  <rect x="740" y="600" width="120" height="180" fill="#FFFcf6"/>
+  <rect x="560" y="580" width="100" height="80" fill="#FFFcf6"/>
+  <rect x="940" y="580" width="100" height="80" fill="#FFFcf6"/>
+  <text x="800" y="160" text-anchor="middle" fill="#1A2744" font-family="Georgia, serif" font-size="64">The farm</text>
+  <text x="800" y="220" text-anchor="middle" fill="#1A2744" font-family="system-ui, sans-serif" font-size="28">PHOTO PLACEHOLDER</text>
+  <text x="800" y="270" text-anchor="middle" fill="#3D4F6F" font-family="system-ui, sans-serif" font-size="22">Red barn, white trim ù 1600 ù 1000 ù /public/images/zones/the-farm.jpg</text>
+</svg>

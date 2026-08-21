@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ToConfirm from "../components/ToConfirm.astro";
+import CtaPanel from "../components/CtaPanel.astro";
+import PhotoFrame from "../components/PhotoFrame.astro";
+import { formatAddress, site } from "../config/site";
+---
+
+<BaseLayout page="visit">
+  <article class="mx-auto max-w-3xl px-4 py-10 md:px-6 md:py-16">
+    <p class="eyebrow">County Durham</p>
+    <h1>Visit us in Bishop Auckland</h1>
+    <p class="mt-4 text-xl text-navy-muted">
+      {site.address.line1}, {site.address.locality}, {site.address.postcode}. Right on the high street, former Bonmarché. You’re in town, not out at a shed on a ring road.
+    </p>
+
+    <div class="mt-8">
+      <PhotoFrame
+        src="/images/zones/town-windows.jpg"
+        placeholder="/images/zones/town-windows.jpg"
+        alt="The grass play floor by the high-street windows, with yellow chairs for grown-ups and toys for babies and toddlers."
+        label="Little Adventure Town"
+        size="1024 × 768"
+        aspect="4 / 3"
+      />
+    </div>
+
+    <section class="mt-10" aria-labelledby="hours-heading">
+      <h2 id="hours-heading">Opening hours</h2>
+      <p class="mt-3">{site.hours.days}. Play sittings at {site.play.sessions.map((s) => s.label).join(", ")}.</p>
+      <p class="mt-2">{site.hours.closed}.</p>
+      <p class="mt-2">Café hours if different from session hours: <ToConfirm value={site.hours.cafeHours} />. {site.cafe.walkInNote}</p>
+      <p class="mt-2">{site.hours.note}</p>
+    </section>
+
+    <section class="mt-10" aria-labelledby="map-heading">
+      <h2 id="map-heading">Map</h2>
+      <div class="mt-4 overflow-hidden rounded-[1.25rem] border-2 border-navy/10">
+        <iframe
+          title="Map of Little Adventure Town on Newgate Street, Bishop Auckland"
+          src={site.maps.embed}
+          class="h-80 w-full"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <p class="mt-4 flex flex-wrap gap-4">
+        <a class="font-bold underline underline-offset-2" href={site.maps.google}>Google Maps</a>
+        <a class="font-bold underline underline-offset-2" href={site.maps.apple}>Apple Maps</a>
+        <a class="font-bold underline underline-offset-2" href={site.maps.openStreetMap}>OpenStreetMap</a>
+      </p>
+      <p class="mt-2">{formatAddress()}</p>
+    </section>
+
+    <section class="mt-10" aria-labelledby="park-heading">
+      <h2 id="park-heading">Parking</h2>
+      <p class="mt-3">
+        Parking is on {site.parking.line1}, {site.parking.locality}, {site.parking.postcode}. We’re on Newgate Street in the town centre.
+      </p>
+      <p class="mt-2">
+        <a class="font-bold underline underline-offset-2" href={site.parking.maps}>Open Tenters Street in Google Maps</a>.
+      </p>
+    </section>
+
+    <section class="mt-10" aria-labelledby="bring-heading">
+      <h2 id="bring-heading">What to bring</h2>
+      <ul class="mt-3 list-disc space-y-2 pl-5">
+        {site.whatToBring.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="mt-10" aria-labelledby="rules-heading">
+      <h2 id="rules-heading">The short version of the rules</h2>
+      <ul class="mt-3 list-disc space-y-2 pl-5">
+        <li>Book first. No walk-in play.</li>
+        <li>Socks on the play floor, grown-ups too.</li>
+        <li>An adult stays with their child.</li>
+        <li>Food and buggies: see <a class="font-bold underline underline-offset-2" href="/house-rules">house rules</a>. Some of that is still to confirm.</li>
+      </ul>
+    </section>
+
+    <CtaPanel />
+  </article>
+</BaseLayout>

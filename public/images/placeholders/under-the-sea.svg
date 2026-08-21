@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Photo placeholder  Under the sea</title>
+  <desc id="desc">Replace with a photograph of the submarine, portholes and painted reef. Recommended size 1600 ù 1000.</desc>
+  <rect width="1600" height="1000" fill="#1F6F8F"/>
+  <circle cx="280" cy="220" r="140" fill="#2A8AAD" opacity="0.5"/>
+  <circle cx="1320" cy="760" r="220" fill="#165A75" opacity="0.6"/>
+  <rect x="180" y="360" width="520" height="320" rx="160" fill="#143F54"/>
+  <circle cx="340" cy="520" r="70" fill="#D9EEF7"/>
+  <circle cx="540" cy="520" r="70" fill="#D9EEF7"/>
+  <text x="800" y="430" text-anchor="middle" fill="#FFFcf6" font-family="Georgia, serif" font-size="64">Under the sea</text>
+  <text x="800" y="500" text-anchor="middle" fill="#FFFcf6" font-family="system-ui, sans-serif" font-size="28">PHOTO PLACEHOLDER</text>
+  <text x="800" y="550" text-anchor="middle" fill="#D9EEF7" font-family="system-ui, sans-serif" font-size="22">Submarine, portholes, painted reef ù 1600 ù 1000</text>
+  <text x="800" y="600" text-anchor="middle" fill="#D9EEF7" font-family="system-ui, sans-serif" font-size="20">Drop the photo at /public/images/zones/under-the-sea.jpg</text>
+</svg>

@@ -1,0 +1,26 @@
+---
+interface Props {
+  src: string | null;
+  placeholder: string;
+  alt: string;
+  label: string;
+  size: string;
+  aspect?: string;
+  eager?: boolean;
+}
+
+const { src, placeholder, alt, label, size, aspect = "4 / 3", eager = false } = Astro.props;
+const photo = src ?? placeholder;
+---
+
+<figure class="photo-frame" style={`aspect-ratio: ${aspect}`} data-photo={label} data-size={src ? undefined : size}>
+  <img
+    src={photo}
+    alt={alt}
+    width="1600"
+    height="1000"
+    loading={eager ? "eager" : "lazy"}
+    decoding="async"
+    class="h-full w-full object-cover"
+  />
+</figure>

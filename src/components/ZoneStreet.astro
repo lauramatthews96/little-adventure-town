@@ -1,0 +1,79 @@
+---
+import PhotoFrame from "./PhotoFrame.astro";
+import ZoneIcon from "./ZoneIcon.astro";
+import { zones, type Zone } from "../config/site";
+
+interface Props {
+  items?: Zone[];
+}
+
+const { items = zones } = Astro.props;
+
+const fascia: Record<Zone["accent"], string> = {
+  sea: "#1f6f8f",
+  sand: "#c24e32",
+  volcano: "#8e3428",
+  castle: "#b3265a",
+  farm: "#a33b2c",
+  space: "#1a2744",
+};
+---
+
+<section aria-labelledby="town-heading" class="mt-14">
+  <div class="town-sign">
+    <div class="town-sign-top">
+      <div>
+        <p class="eyebrow">A town of little worlds</p>
+        <h2 id="town-heading">Walk through town</h2>
+      </div>
+      <a class="town-sign-link" href="/whats-inside">See what’s inside</a>
+    </div>
+    <p class="town-sign-lede">
+      Six handmade rooms, not a plastic frame. Wander from one little world to the next.
+    </p>
+    <ol class="town-legend" aria-label="The six rooms">
+      {
+        items.map((zone) => (
+          <li>
+            <a class="zone-chip" href={`/whats-inside#${zone.id}`}>
+              <ZoneIcon id={zone.id} />
+              {zone.shortName}
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+
+  <div class="town-street-wrap">
+    <ol class="town-street" tabindex="0" aria-label="Play zones along the town street">
+      {
+        items.map((zone, index) => (
+          <li class="town-stop">
+            <a href={`/whats-inside#${zone.id}`}>
+              <article class="town-building" style={`--fascia: ${fascia[zone.accent]}`}>
+                <div class="town-photo">
+                  <PhotoFrame
+                    src={zone.image}
+                    placeholder={zone.placeholder}
+                    alt=""
+                    label={zone.name}
+                    size={zone.photoSize}
+                    aspect="4 / 3"
+                  />
+                </div>
+                <div class="town-fascia">
+                  <p class="text-sm font-bold uppercase tracking-wider text-navy-muted">
+                    Stop {index + 1} · {zone.eyebrow}
+                  </p>
+                  <h3 class="mt-1">{zone.name}</h3>
+                  <p class="mt-1 text-base text-navy-muted">{zone.summary}</p>
+                </div>
+              </article>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

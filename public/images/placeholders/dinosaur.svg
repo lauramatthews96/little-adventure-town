@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Photo placeholder  Dinosaur and volcano</title>
+  <desc id="desc">Replace with a photograph of the painted volcano and cave tunnel. Recommended size 1600 ù 1000.</desc>
+  <rect width="1600" height="1000" fill="#E8D4A8"/>
+  <polygon points="250,860 620,220 990,860" fill="#8E3428"/>
+  <ellipse cx="620" cy="210" rx="90" ry="40" fill="#C24E32"/>
+  <path d="M430 860 Q620 640 810 860" fill="#1A2744"/>
+  <text x="1100" y="400" text-anchor="middle" fill="#1A2744" font-family="Georgia, serif" font-size="56">Dinosaur &amp; volcano</text>
+  <text x="1100" y="470" text-anchor="middle" fill="#1A2744" font-family="system-ui, sans-serif" font-size="28">PHOTO PLACEHOLDER</text>
+  <text x="1100" y="520" text-anchor="middle" fill="#3D4F6F" font-family="system-ui, sans-serif" font-size="22">Painted volcano, cave tunnel ù 1600 ù 1000</text>
+  <text x="1100" y="570" text-anchor="middle" fill="#3D4F6F" font-family="system-ui, sans-serif" font-size="20">Drop the photo at /public/images/zones/dinosaur.jpg</text>
+</svg>

@@ -1,0 +1,87 @@
+---
+import BrandMark from "./BrandMark.astro";
+import { nav } from "../config/site";
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 md:px-6">
+    <BrandMark />
+
+    <nav class="ml-auto hidden items-center gap-1 md:flex" aria-label="Primary">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "rounded-full px-2.5 py-2 text-[0.95rem] font-bold no-underline hover:bg-white/70 lg:px-3 lg:text-base",
+              currentPath === item.href && "bg-white/80",
+            ]}
+            aria-current={currentPath === item.href ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a href="/book" class="btn btn-primary ml-auto shrink-0 md:ml-3">
+      <span class="sm:hidden">Book</span>
+      <span class="hidden sm:inline">Book a session</span>
+    </a>
+
+    <button
+      type="button"
+      class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border-2 border-navy bg-cloud md:hidden"
+      id="menu-toggle"
+      aria-expanded="false"
+      aria-controls="nav-panel"
+    >
+      <span class="sr-only">Menu</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 md:hidden" id="nav-panel" hidden>
+    <nav class="nav-panel flex flex-col pb-3" aria-label="Primary mobile">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "rounded-xl px-3 py-3 text-lg font-bold no-underline",
+              currentPath === item.href && "bg-white/80",
+            ]}
+            aria-current={currentPath === item.href ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const panel = document.getElementById("nav-panel");
+  if (toggle && panel) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      panel.hidden = !open;
+    };
+    toggle.addEventListener("click", () => {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setOpen(false);
+    });
+  }
+</script>

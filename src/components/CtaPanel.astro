@@ -1,0 +1,22 @@
+---
+import { site, childPriceLine } from "../config/site";
+
+interface Props {
+  heading?: string;
+  compact?: boolean;
+}
+
+const { heading = "Book a session", compact = false } = Astro.props;
+---
+
+<aside class={`card mt-12 ${compact ? "" : "md:flex md:items-center md:justify-between md:gap-8"}`}>
+  <div>
+    <h2 class:list={[compact && "text-2xl"]}>{heading}</h2>
+    <p class="mt-2 max-w-xl">
+      {site.hours.days}, three sittings, {site.play.durationLabel}. {childPriceLine()}. Adults go free. Book before you come and we’ll see you there.
+    </p>
+  </div>
+  <p class={`mt-4 ${compact ? "" : "md:mt-0"}`}>
+    <a class="btn btn-primary" href="/book">Book a session</a>
+  </p>
+</aside>

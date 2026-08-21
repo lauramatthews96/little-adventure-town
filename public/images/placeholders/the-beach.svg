@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Photo placeholder  The beach</title>
+  <desc id="desc">Replace with a photograph of the sand pit and boat. Recommended size 1600 ù 1000.</desc>
+  <rect width="1600" height="1000" fill="#7EB8D4"/>
+  <rect y="560" width="1600" height="440" fill="#E8D4A8"/>
+  <ellipse cx="1100" cy="640" rx="280" ry="70" fill="#C24E32" opacity="0.85"/>
+  <rect x="1020" y="500" width="160" height="140" rx="12" fill="#FFFcf6"/>
+  <text x="800" y="300" text-anchor="middle" fill="#1A2744" font-family="Georgia, serif" font-size="64">The beach</text>
+  <text x="800" y="370" text-anchor="middle" fill="#1A2744" font-family="system-ui, sans-serif" font-size="28">PHOTO PLACEHOLDER</text>
+  <text x="800" y="420" text-anchor="middle" fill="#3D4F6F" font-family="system-ui, sans-serif" font-size="22">Sand pit and boat ù 1600 ù 1000</text>
+  <text x="800" y="470" text-anchor="middle" fill="#3D4F6F" font-family="system-ui, sans-serif" font-size="20">Drop the photo at /public/images/zones/the-beach.jpg</text>
+</svg>

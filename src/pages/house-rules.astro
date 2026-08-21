@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ToConfirm from "../components/ToConfirm.astro";
+import { site } from "../config/site";
+---
+
+<BaseLayout page="houseRules">
+  <article class="prose-page mx-auto px-4 py-10 md:px-6 md:py-16">
+    <h1>House rules</h1>
+    <p class="mt-4 text-navy-muted">The short list for a calmer room. Last updated 20 August 2026.</p>
+
+    <h2>Socks</h2>
+    <p>
+      Shoes off, socks on for everyone on the play floor, including adults.
+    </p>
+
+    <h2>Supervision</h2>
+    <p>
+      Children must be supervised by an adult at all times. Staff are here to run the rooms, not to babysit. Adults go free.
+    </p>
+
+    <h2>Booking</h2>
+    <p>
+      Play is booked. There is no walk-in general admission.
+    </p>
+
+    <h2>Food and allergens</h2>
+    <p>
+      There is a café on site. {site.cafe.walkInNote} Whether you may bring your own food: <ToConfirm value={site.policies.ownFood} />. Allergen policy: <ToConfirm value={site.policies.allergen} />. If your child has an allergy, tell us when you book or via the contact form.
+    </p>
+
+    <h2>Buggies</h2>
+    <p>
+      Where buggies live on arrival: <ToConfirm value={site.policies.buggies} />. We will spell this out once the fit-out is finished. Until then, travel as light as you can. We are on a town-centre high street.
+    </p>
+
+    <h2>The rooms</h2>
+    <p>
+      Be kind to the paintwork and to other families. No climbing on things that are not for climbing. The sensory room is a quiet place. Keep voices and devices down in there.
+    </p>
+
+    <h2>Illness</h2>
+    <p>
+      Please do not come if your child is infectious. The cancellation wording for that situation is part of the policy still <ToConfirm value={site.policies.cancellation} />.
+    </p>
+
+    <p class="mt-8">
+      Questions: <a class="font-bold underline underline-offset-2" href="/faq">FAQ</a> or <a class="font-bold underline underline-offset-2" href="/contact">contact</a>.
+    </p>
+  </article>
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import { bookwhenIframeSrc, bookwhenPageUrl, site } from "../config/site";
+
+/**
+ * Isolated Bookwhen embed.
+ * Swap provider, URL or fallback behaviour here, nowhere else.
+ */
+const iframeSrc = bookwhenIframeSrc();
+const pageUrl = bookwhenPageUrl();
+---
+
+<section class="bookwhen-embed" aria-labelledby="booking-embed-heading">
+  <h2 id="booking-embed-heading" class="sr-only">Book a play session</h2>
+
+  <div class="overflow-hidden rounded-[1.25rem] border-2 border-navy/15 bg-cloud">
+    <iframe
+      src={iframeSrc}
+      title={`Book a play session at ${site.name}`}
+      class="bookwhen-frame"
+      scrolling="yes"
+      allow="payment"
+    ></iframe>
+  </div>
+
+  <p class="mt-4 text-center text-navy-muted">
+    Having trouble with the booking box above?
+    {" "}
+    <a
+      class="font-bold underline underline-offset-2"
+      href={pageUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Open our booking page in a new tab
+    </a>.
+    Payments are taken by Stripe.
+  </p>
+</section>

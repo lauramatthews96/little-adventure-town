@@ -1,0 +1,68 @@
+---
+import { site } from "../config/site";
+import DealBadge from "./DealBadge.astro";
+---
+
+<section class="mx-auto mt-16 max-w-6xl px-4 md:px-6" aria-labelledby="session-heading">
+  <div class="session-ticket">
+    <div class="session-ticket-main">
+      <div class="session-ticket-head">
+        <div>
+          <p class="eyebrow">Play sessions</p>
+          <h2 id="session-heading">Ninety minutes.<br />You book a slot.</h2>
+        </div>
+        <p class="session-days">{site.hours.days}</p>
+      </div>
+      <p class="mt-4 max-w-xl text-lg text-navy-muted">
+        Booking is essential. Grab a sitting before you come, so it stays calm for everyone.
+      </p>
+
+      <div class="session-tray">
+        <p class="session-tray-label">Three sittings · {site.play.durationLabel} each</p>
+        <ol class="session-sittings" aria-label="Three sittings">
+          {
+            site.play.sessions.map((session, index) => (
+              <li>
+                <span class="sr-only">Sitting {index + 1}. </span>
+                <span class="session-num" aria-hidden="true">{index + 1}</span>
+                <p class="session-time">
+                  <strong>{session.start}</strong>
+                  <span>to {session.end}</span>
+                </p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <p class="session-note">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M5 9h14v9.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 18.5V9Z"
+            stroke="currentColor"
+            stroke-width="1.8"></path>
+          <path
+            d="M5 10.5c1.6-1.4 3.2-2 5.5-2s3.9.6 5.5 2c1.4 1.2 2.6 1.2 4 0"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"></path>
+          <path d="M8 4.5h2.5v4H8zM13.5 4.5H16v4h-2.5z" stroke="currentColor" stroke-width="1.8"></path>
+        </svg>
+        <span>{site.cafe.walkInNote}</span>
+      </p>
+    </div>
+
+    <div class="session-ticket-stub">
+      <div>
+        <p class="session-price-kicker">
+          <DealBadge onNavy />
+        </p>
+        <p class="session-price">{site.play.pricePerChild}</p>
+        <p class="session-price-meta">
+          Per child, for {site.play.offer.period}. {site.play.adultsFree}.
+        </p>
+      </div>
+      <a class="btn btn-secondary" href="/book">Book a session</a>
+    </div>
+  </div>
+</section>

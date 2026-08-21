@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ToConfirm from "../components/ToConfirm.astro";
+import { childPriceLine, site } from "../config/site";
+---
+
+<BaseLayout page="bookingTerms">
+  <article class="prose-page mx-auto px-4 py-10 md:px-6 md:py-16">
+    <h1>Booking terms</h1>
+    <p class="mt-4 text-navy-muted">These cover play sessions booked through this website and Bookwhen. Last updated 20 August 2026.</p>
+
+    <h2>The booking</h2>
+    <p>
+      A play session is {site.play.durationLabel}. {childPriceLine()}. Adults go free. Sessions run {site.hours.days} at {site.play.sessions.map((s) => s.label).join(", ")}. Booking is essential. There is no walk-in general admission.
+    </p>
+    <p>
+      Bookings are made through Bookwhen. Payment is taken by Stripe. This website does not collect card numbers.
+    </p>
+
+    <h2>Who the session is for</h2>
+    <p>
+      Daytime play sessions are for babies, toddlers and pre-school children. An adult must supervise their child for the whole sitting. Adults go free.
+    </p>
+
+    <h2>Cancellations and refunds</h2>
+    <p>
+      Policy wording: <ToConfirm value={site.policies.cancellation} />. Until that is written, do not assume a refund, a credit, or a free move. The confirmed wording will appear on this page and in Bookwhen at checkout.
+    </p>
+
+    <h2>Arriving and late</h2>
+    <p>
+      Please arrive for the start of your sitting. We cannot extend a session because the next one needs the rooms. If you miss the sitting entirely, the cancellation policy (once confirmed) applies.
+    </p>
+
+    <h2>Our house, our rules</h2>
+    <p>
+      By booking you agree to the <a class="font-bold underline underline-offset-2" href="/house-rules">house rules</a>. We can refuse entry or end a visit if the rules are not followed, including where a child is left unsupervised.
+    </p>
+
+    <h2>Changes we make</h2>
+    <p>
+      If we have to cancel a sitting (fit-out, staffing, or something we cannot run safely) we will offer a rebook or a refund of the session fee. We open {site.opening.date}.
+    </p>
+  </article>
+</BaseLayout>

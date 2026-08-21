@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PhotoFrame from "../components/PhotoFrame.astro";
+import ZoneStreet from "../components/ZoneStreet.astro";
+import PlaySessions from "../components/PlaySessions.astro";
+import DealBadge from "../components/DealBadge.astro";
+import { site, hero } from "../config/site";
+---
+
+<BaseLayout page="home">
+  <section class="mx-auto max-w-6xl px-4 pb-6 pt-10 md:px-6 md:pt-16">
+    <div class="grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <p class="eyebrow">Bishop Auckland · County Durham</p>
+        <h1>A little town of handmade worlds, on Newgate Street.</h1>
+        <ul class="hero-facts">
+          <li class="hero-facts-deal">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.8"></circle>
+              <path d="M12 8.25V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span>
+              <DealBadge />
+              <span class="mt-0.5 block">{site.play.durationLabel}, {site.play.offer.summary}. Adults go free.</span>
+            </span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4.5 20V10.5L12 5l7.5 5.5V20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+              <path d="M9.5 20v-6h5v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+            </svg>
+            <span>Come along with babies, toddlers or pre-schoolers. SEND friendly, with sensory play.</span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="4" y="5.5" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
+              <path d="M8 3.75v3.5M16 3.75v3.5M4 10h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            </svg>
+            <span>
+              Opening {site.opening.date}. {site.hours.days}, three sittings:
+              <span class="hero-facts-times">{site.play.sessions.map((s) => s.label).join(" · ")}</span>
+            </span>
+          </li>
+          <li>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6.5 8.5h11a1.5 1.5 0 0 1 1.5 1.5v9l-3.2-1.6-3.3 1.6-3.3-1.6L5 19v-9a1.5 1.5 0 0 1 1.5-1.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+              <path d="M9 12.25h6M9 15.25h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            </svg>
+            <span>You’ll need to book a sitting. No walk-in play, so it stays nice and calm.</span>
+          </li>
+        </ul>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a class="btn btn-primary" href="/book">Book a session</a>
+          <a class="btn btn-secondary" href="/whats-inside">See what’s inside</a>
+        </div>
+      </div>
+      <PhotoFrame
+        src={hero.image}
+        placeholder={hero.image}
+        alt={hero.alt}
+        label="Little Adventure Town"
+        size="1024 × 768"
+        aspect="4 / 3"
+        eager
+      />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 md:px-6" aria-labelledby="why-heading">
+    <div class="why-grid">
+      <article class="card why-card" style="--why: var(--color-meadow)">
+        <span class="why-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <circle cx="8" cy="9" r="2.4" stroke="currentColor" stroke-width="1.8"></circle>
+            <circle cx="16" cy="9.5" r="2.1" stroke="currentColor" stroke-width="1.8"></circle>
+            <path d="M3.8 18.2c.4-2.6 2.4-4 4.3-4s3.7 1.2 4.2 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M12.8 17.8c.5-2 2.1-3.3 3.7-3.3 1.7 0 3.3 1.1 3.7 3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+        </span>
+        <h2 id="why-heading" class="text-2xl">Small on purpose</h2>
+        <p class="mt-2">Booked sittings, not a Saturday crush. You can actually hear your own child. That helps families who’ve come a bit further, and anyone local popping in.</p>
+      </article>
+      <article class="card why-card" style="--why: var(--color-pink)">
+        <span class="why-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M4.5 20V10.5L12 5l7.5 5.5V20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+            <path d="M9.5 20v-6h5v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+          </svg>
+        </span>
+        <h2 class="text-2xl">Built by hand</h2>
+        <p class="mt-2">A submarine, a sand pit, a volcano with a cave, a castle tea party, a red barn, and a dark room of stars. These rooms are why you come, not a climbing frame with a café stuck on the side.</p>
+      </article>
+      <article class="card why-card why-card-send" id="send" style="--why: var(--color-teal)">
+        <span class="why-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2.6c2.25 3.9 2.85 8.1 2.85 12.6H9.15C9.15 10.7 9.75 6.5 12 2.6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+            <circle cx="12" cy="9.4" r="1.45" fill="currentColor"></circle>
+            <path d="M9.15 13.8 5.5 19.1l3.65-2.05M14.85 13.8 18.5 19.1l-3.65-2.05" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+            <path d="M10.25 16.7 12 21.3 13.75 16.7" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+          </svg>
+        </span>
+        <h2 class="text-2xl">SEND friendly</h2>
+        <p class="mt-2">We’re SEND friendly, with sensory play in ordinary sittings. If a quieter sitting would help, say so when you book or drop us a message.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-6xl px-4 md:px-6">
+    <ZoneStreet />
+  </div>
+
+  <PlaySessions />
+</BaseLayout>

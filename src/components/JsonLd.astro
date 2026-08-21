@@ -1,0 +1,41 @@
+---
+import { site, isToConfirm, hero } from "../config/site";
+
+const sameAs = [site.social.facebookUrl, site.social.instagramUrl];
+
+const data: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": ["EntertainmentBusiness", "CafeOrCoffeeShop"],
+  name: site.name,
+  legalName: site.legalName,
+  description: site.description,
+  url: site.url,
+  image: new URL(hero.image, site.url).toString(),
+  priceRange: site.play.priceRange,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.address.line1,
+    addressLocality: site.address.locality,
+    addressRegion: site.address.region,
+    postalCode: site.address.postcode,
+    addressCountry: site.address.countryCode,
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: site.geo.latitude,
+    longitude: site.geo.longitude,
+  },
+  openingHoursSpecification: site.hours.schema.map((block) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [...block.days],
+    opens: block.opens,
+    closes: block.closes,
+  })),
+  sameAs,
+};
+
+if (!isToConfirm(site.contact.phone)) data.telephone = site.contact.phone;
+if (!isToConfirm(site.contact.email)) data.email = site.contact.email;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

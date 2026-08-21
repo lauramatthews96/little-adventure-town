@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaPanel from "../components/CtaPanel.astro";
+import { faqs } from "../config/site";
+---
+
+<BaseLayout page="faq">
+  <article class="mx-auto max-w-3xl px-4 py-10 md:px-6 md:py-16">
+    <p class="eyebrow">Straight answers</p>
+    <h1>Frequently asked questions</h1>
+    <p class="mt-4 text-xl text-navy-muted">
+      Straight answers, written for a phone in one hand. Where we haven’t confirmed something yet, it says so. We’d rather a yellow marker than a made-up rule.
+    </p>
+
+    <div class="mt-10 space-y-4">
+      {
+        faqs.map((item) => (
+          <section class="card" aria-labelledby={item.id}>
+            <h2 id={item.id} class="text-2xl">{item.question}</h2>
+            <p class="mt-2">{item.answer}</p>
+          </section>
+        ))
+      }
+    </div>
+
+    <p class="mt-10">
+      Still stuck? <a class="font-bold underline underline-offset-2" href="/contact">Contact us</a> or read the <a class="font-bold underline underline-offset-2" href="/house-rules">house rules</a>.
+    </p>
+
+    <CtaPanel heading="Book a session" />
+  </article>
+</BaseLayout>

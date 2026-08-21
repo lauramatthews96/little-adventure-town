@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Photo placeholder  Space sensory room</title>
+  <desc id="desc">Replace with a photograph of the dark sensory room with fibre optics, projected stars, light-up rocket and tactile wall panels. Recommended size 1600 ù 1000. Static artwork  no flashing or animation.</desc>
+  <rect width="1600" height="1000" fill="#1A2744"/>
+  <g fill="#FFFcf6">
+    <circle cx="180" cy="140" r="3"/>
+    <circle cx="340" cy="90" r="2"/>
+    <circle cx="520" cy="200" r="3"/>
+    <circle cx="780" cy="80" r="2"/>
+    <circle cx="1100" cy="160" r="3"/>
+    <circle cx="1400" cy="120" r="2"/>
+    <circle cx="250" cy="480" r="2"/>
+    <circle cx="1280" cy="420" r="3"/>
+    <circle cx="960" cy="300" r="2"/>
+    <circle cx="640" cy="360" r="3"/>
+  </g>
+  <rect x="720" y="420" width="160" height="280" rx="80" fill="#FFFcf6"/>
+  <polygon points="800,300 860,430 740,430" fill="#C24E32"/>
+  <text x="800" y="200" text-anchor="middle" fill="#FFFcf6" font-family="Georgia, serif" font-size="56">Space sensory room</text>
+  <text x="800" y="820" text-anchor="middle" fill="#FFFcf6" font-family="system-ui, sans-serif" font-size="28">PHOTO PLACEHOLDER</text>
+  <text x="800" y="870" text-anchor="middle" fill="#D9EEF7" font-family="system-ui, sans-serif" font-size="22">Fibre optics, stars, rocket, tactile panels ù 1600 ù 1000</text>
+</svg>

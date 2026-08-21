@@ -1,0 +1,13 @@
+---
+import { isToConfirm } from "../config/site";
+
+interface Props {
+  value?: string;
+  label?: string;
+}
+
+const { value, label = "To confirm" } = Astro.props;
+const pending = value === undefined || isToConfirm(value);
+---
+
+{pending ? <span class="to-confirm">{label}</span> : <span>{value}</span>}
