@@ -986,10 +986,17 @@ body.has-sticky-book {
   max-width: none;
 }
 
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
 @media (min-width: 64rem) {
   .home-hero {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr);
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr auto;
     align-items: start;
     gap: 1.5rem 2.25rem;
   }
@@ -1011,6 +1018,12 @@ body.has-sticky-book {
     max-width: none;
     margin-inline: 0;
     align-self: center;
+  }
+
+  .home-hero-actions {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: 0.35rem;
   }
 }
 
