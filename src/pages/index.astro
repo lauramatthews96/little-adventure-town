@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
 import ZoneStreet from "../components/ZoneStreet.astro";
 import PlaySessions from "../components/PlaySessions.astro";
 import DealBadge from "../components/DealBadge.astro";
@@ -7,61 +8,60 @@ import { site, hero } from "../config/site";
 ---
 
 <BaseLayout page="home">
-  <section class="mx-auto max-w-6xl px-4 pb-6 pt-10 md:px-6 md:pt-16">
-    <div class="grid items-center gap-10 lg:grid-cols-2">
-      <div>
-        <p class="eyebrow">Bishop Auckland · County Durham</p>
-        <h1>A little town of handmade worlds, on Newgate Street.</h1>
-        <ul class="hero-facts">
-          <li class="hero-facts-deal">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.8"></circle>
-              <path d="M12 8.25V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-            <span>
-              <DealBadge />
-              <span class="mt-0.5 block">{site.play.durationLabel}, {site.play.offer.summary}. Adults go free.</span>
-            </span>
-          </li>
-          <li>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4.5 20V10.5L12 5l7.5 5.5V20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-              <path d="M9.5 20v-6h5v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-            </svg>
-            <span>Come along with babies, toddlers or pre-schoolers. SEND friendly, with sensory play.</span>
-          </li>
-          <li>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="4" y="5.5" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
-              <path d="M8 3.75v3.5M16 3.75v3.5M4 10h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-            <span>
-              Opening {site.opening.date}. {site.hours.days}, three sittings:
-              <span class="hero-facts-times">{site.play.sessions.map((s) => s.label).join(" · ")}</span>
-            </span>
-          </li>
-          <li>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6.5 8.5h11a1.5 1.5 0 0 1 1.5 1.5v9l-3.2-1.6-3.3 1.6-3.3-1.6L5 19v-9a1.5 1.5 0 0 1 1.5-1.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-              <path d="M9 12.25h6M9 15.25h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-            </svg>
-            <span>You’ll need to book a sitting. No walk-in play, so it stays nice and calm.</span>
-          </li>
-        </ul>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a class="btn btn-primary" href="/book">Book a session</a>
-          <a class="btn btn-secondary" href="/whats-inside">See what’s inside</a>
-        </div>
-      </div>
-      <div class="hero-photo">
-        <img
-          src={hero.image}
-          alt={hero.alt}
-          width="1800"
-          height="1591"
-          loading="eager"
-          decoding="async"
-        />
+  <section class="home-hero mx-auto max-w-7xl px-4 pb-6 pt-8 md:px-6 md:pt-12">
+    <PageHero eyebrow="Bishop Auckland · County Durham" accent="pink" mark="★">
+      <h1 slot="title">A little town of handmade worlds, on Newgate Street.</h1>
+    </PageHero>
+    <div class="hero-photo">
+      <img
+        src={hero.image}
+        alt={hero.alt}
+        width="1800"
+        height="1591"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+    <div class="home-hero-copy">
+      <ul class="hero-facts">
+        <li class="hero-facts-deal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.8"></circle>
+            <path d="M12 8.25V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span>
+            <DealBadge />
+            <span class="mt-0.5 block">{site.play.durationLabel}, {site.play.offer.summary}. Adults go free.</span>
+          </span>
+        </li>
+        <li>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4.5 20V10.5L12 5l7.5 5.5V20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+            <path d="M9.5 20v-6h5v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+          </svg>
+          <span>Come along with babies, toddlers or pre-schoolers. SEND friendly, with sensory play.</span>
+        </li>
+        <li>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="4" y="5.5" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
+            <path d="M8 3.75v3.5M16 3.75v3.5M4 10h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+          <span>
+            Opening {site.opening.date}. {site.hours.days}, three sittings:
+            <span class="hero-facts-times">{site.play.sessions.map((s) => s.label).join(" · ")}</span>
+          </span>
+        </li>
+        <li>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6.5 8.5h11a1.5 1.5 0 0 1 1.5 1.5v9l-3.2-1.6-3.3 1.6-3.3-1.6L5 19v-9a1.5 1.5 0 0 1 1.5-1.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+            <path d="M9 12.25h6M9 15.25h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+          <span>You’ll need to book a sitting. No walk-in play, so it stays nice and calm.</span>
+        </li>
+      </ul>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a class="btn btn-primary btn-book-now" href="/book">BOOK NOW!</a>
+        <a class="btn btn-secondary" href="/whats-inside">See what’s inside</a>
       </div>
     </div>
   </section>

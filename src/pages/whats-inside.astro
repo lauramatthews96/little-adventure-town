@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
 import PhotoFrame from "../components/PhotoFrame.astro";
 import CtaPanel from "../components/CtaPanel.astro";
 import ZoneIcon from "../components/ZoneIcon.astro";
@@ -8,11 +9,10 @@ import { zones } from "../config/site";
 
 <BaseLayout page="whatsInside">
   <article class="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-16">
-    <p class="eyebrow">Bishop Auckland</p>
-    <h1>What’s inside the town</h1>
-    <p class="mt-4 max-w-2xl text-xl text-navy-muted">
-      You don’t go up a frame. You wander from one little world to the next.
-    </p>
+    <PageHero eyebrow="Bishop Auckland" accent="meadow" mark="★">
+      <h1 slot="title">What’s inside the town</h1>
+      <p>You don’t go up a frame. You wander from one little world to the next.</p>
+    </PageHero>
 
     <nav class="zone-chips" aria-label="Zones">
       {

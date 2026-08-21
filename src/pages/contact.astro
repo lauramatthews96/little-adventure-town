@@ -1,47 +1,70 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
 import EnquiryForm from "../components/EnquiryForm.astro";
-import ToConfirm from "../components/ToConfirm.astro";
 import { formatAddress, isToConfirm, site } from "../config/site";
+import ToConfirm from "../components/ToConfirm.astro";
+import FacebookIcon from "../components/FacebookIcon.astro";
+import InstagramIcon from "../components/InstagramIcon.astro";
 
 const sent = Astro.url.searchParams.get("sent") === "1";
 ---
 
 <BaseLayout page="contact">
-  <article class="mx-auto max-w-3xl px-4 py-10 md:px-6 md:py-16">
-    <p class="eyebrow">Bishop Auckland</p>
-    <h1>Contact</h1>
-    <p class="mt-4 text-xl text-navy-muted">
-      Questions about parties, SEND, or just wanting to say hello. If you’re booking a sitting, <a class="font-bold underline underline-offset-2" href="/book">go to the booking page</a>. This form isn’t a booking.
-    </p>
+  <article class="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-16">
+    <PageHero eyebrow="Bishop Auckland" accent="pink" mark="✉">
+      <h1 slot="title">Say hello</h1>
+      <p>
+        Questions about parties, SEND, or just wanting to wave. If you’re booking a sitting, <a class="font-bold underline underline-offset-2" href="/book">go to the booking page</a>. This form isn’t a booking.
+      </p>
+    </PageHero>
 
     {
       sent && (
-        <p class="mt-6 rounded-[1.25rem] border-2 border-teal bg-[#e7f6f4] p-4 font-bold" role="status">
+        <p class="mt-6 rounded-[1.25rem] border-[3px] border-meadow bg-mint p-4 font-bold" role="status">
           Thank you. We’ve got your message and we’ll reply as soon as we can.
         </p>
       )
     }
 
-    <section class="mt-10" aria-labelledby="direct-heading">
-      <h2 id="direct-heading">Direct details</h2>
-      <ul class="mt-4 space-y-2">
-        <li>{formatAddress()}</li>
-        <li>Email: {isToConfirm(site.contact.email) ? <ToConfirm /> : <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>}</li>
-        <li>
-          Instagram: <a class="font-bold underline underline-offset-2" href={site.social.instagramUrl}>{site.social.instagramHandle}</a>
-        </li>
-        <li>
-          Facebook: <a class="font-bold underline underline-offset-2" href={site.social.facebookUrl} target="_blank" rel="noopener noreferrer">{site.social.facebookName}</a>
-        </li>
-      </ul>
-      <p class="mt-3">{site.contact.contactNote}</p>
-    </section>
-
-    <div class="mt-12">
-      <h2>Send a message</h2>
-      <p class="mt-3 mb-6">For adjustments, tell us what usually helps. We read these as people, not as a ticket queue.</p>
-      <EnquiryForm formName="contact" submitLabel="Send message" />
+    <div class="contact-grid">
+      <section class="story-card" style="--story: var(--color-teal)" aria-labelledby="direct-heading">
+        <h2 id="direct-heading">Find us</h2>
+        <p>{formatAddress()}</p>
+        <p class="mt-2">
+          Email: {isToConfirm(site.contact.email) ? <ToConfirm /> : <a class="font-bold underline underline-offset-2" href={`mailto:${site.contact.email}`}>{site.contact.email}</a>}
+        </p>
+      </section>
+      <section class="story-card" style="--story: var(--color-pink)" aria-labelledby="social-heading">
+        <h2 id="social-heading">The quickest hello</h2>
+        <p>
+          <a class="inline-flex items-center gap-1.5 font-bold underline underline-offset-2" href={site.social.facebookUrl} target="_blank" rel="noopener noreferrer">
+            <FacebookIcon />
+            Facebook
+          </a>
+        </p>
+        <p class="mt-2">
+          <a class="inline-flex items-center gap-1.5 font-bold underline underline-offset-2" href={site.social.instagramUrl} target="_blank" rel="noopener noreferrer">
+            <InstagramIcon />
+            Instagram
+          </a>
+        </p>
+        <p class="mt-3">{site.contact.contactNote}</p>
+      </section>
     </div>
+
+    <div class="section-head" style="--section: var(--color-meadow)">
+      <span class="section-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6.5h16v11H4V6.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+          <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <div>
+        <h2>Send a message</h2>
+        <p class="section-blurb">For adjustments, tell us what usually helps. We read these as people, not as a ticket queue.</p>
+      </div>
+    </div>
+    <EnquiryForm formName="contact" submitLabel="Send message" />
   </article>
 </BaseLayout>

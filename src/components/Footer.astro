@@ -1,9 +1,11 @@
 ---
 import { footerNav, site, formatAddress } from "../config/site";
 import FacebookIcon from "./FacebookIcon.astro";
+import InstagramIcon from "./InstagramIcon.astro";
 ---
 
-<footer class="mt-16 border-t border-navy/10 bg-cloud">
+<footer class="site-footer mt-16 bg-cloud">
+  <div class="site-ribbon" aria-hidden="true"></div>
   <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3 md:px-6">
     <div>
       <p class="font-display text-2xl font-semibold">Little Adventure Town</p>
@@ -42,8 +44,9 @@ import FacebookIcon from "./FacebookIcon.astro";
           </a>
         </li>
         <li>
-          <a class="font-bold underline decoration-pink underline-offset-2 hover:decoration-navy" href={site.social.instagramUrl} rel="noopener noreferrer">
-            Instagram {site.social.instagramHandle}
+          <a class="inline-flex items-center gap-1.5 font-bold underline decoration-pink underline-offset-2 hover:decoration-navy" href={site.social.instagramUrl} target="_blank" rel="noopener noreferrer">
+            <InstagramIcon />
+            Instagram
           </a>
         </li>
         <li>
@@ -51,15 +54,15 @@ import FacebookIcon from "./FacebookIcon.astro";
         </li>
       </ul>
       <p class="mt-6">
-        <a class="btn btn-primary" href="/book">
-          Book a session · {site.play.offer.active ? `September ${site.play.pricePerChild}` : site.play.pricePerChild}
+        <a class="btn btn-primary btn-book-now" href="/book">
+          BOOK NOW! · {site.play.offer.active ? `September ${site.play.pricePerChild}` : site.play.pricePerChild}
         </a>
       </p>
     </div>
   </div>
   <div class="border-t border-navy/10">
     <div class="mx-auto max-w-6xl px-4 py-6 text-sm text-navy-muted md:px-6">
-      <p>© {new Date().getFullYear()} {site.legalName}. Company no. {site.companyNumber}.</p>
+      <p>© {new Date().getFullYear()} {site.legalName}.</p>
     </div>
   </div>
 </footer>

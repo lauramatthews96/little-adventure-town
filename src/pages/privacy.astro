@@ -1,51 +1,111 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
 import { formatAddress, site } from "../config/site";
 ---
 
 <BaseLayout page="privacy">
   <article class="prose-page mx-auto px-4 py-10 md:px-6 md:py-16">
-    <h1>Privacy policy</h1>
-    <p class="mt-4 text-navy-muted">Plain English. UK GDPR. Last updated 20 August 2026.</p>
+    <PageHero eyebrow="UK GDPR" accent="teal" mark="★">
+      <h1 slot="title">Privacy policy</h1>
+      <p>Plain English, for a small play café. Last updated 21 August 2026.</p>
+    </PageHero>
 
     <h2>Who we are</h2>
     <p>
       {site.legalName} (company number {site.companyNumber}) trades as {site.name}. We run an indoor adventure play café at {formatAddress()}.
     </p>
     <p>
-      To contact us about this policy: <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> or the form on the <a class="font-bold underline underline-offset-2" href="/contact">contact page</a>.
+      For this website and for bookings made through it, we are the data controller. That means we decide why information is used, and we are responsible for looking after it.
+    </p>
+    <p>
+      Questions about this policy, or about your information: email <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>, use the form on the <a class="font-bold underline underline-offset-2" href="/contact">contact page</a>, or send us a message on <a class="font-bold underline underline-offset-2" href={site.social.facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a> or <a class="font-bold underline underline-offset-2" href={site.social.instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>.
     </p>
 
     <h2>What we collect, and why</h2>
+    <p>We only ask for what we need to run the town and to reply to you.</p>
     <ul>
-      <li><strong>Enquiry forms</strong> (contact and party): name, email, optional phone, and whatever you write. We use this to reply. Legal basis: legitimate interests, or taking steps at your request before a contract.</li>
-      <li><strong>Bookings</strong> are taken by Bookwhen, with payments by Stripe. Their systems collect the details needed to book and pay. We see booking information in order to run the session. Legal basis: contract.</li>
-      <li><strong>SEND adjustments</strong> you tell us about are special category data if they include health information. We only keep what we need to make the visit work, and we do not use it for anything else.</li>
+      <li>
+        <strong>Website enquiry forms</strong> (contact and party). Name, email, an optional phone number, and the message you write. Party enquiries also ask for the birthday child’s age, a preferred date, and a rough number of children. We use this to answer you and to see whether a party date works. Legal basis: legitimate interests, or taking steps at your request before a booking.
+      </li>
+      <li>
+        <strong>Play session bookings</strong> are taken by {site.booking.provider}. Payment is taken by {site.booking.payments}. Their systems collect the details needed to book a sitting and to take payment. We see booking information so we can run the session, look after the rooms, and help if something goes wrong. Legal basis: contract.
+      </li>
+      <li>
+        <strong>Party bookings</strong> use the same booking and payment companies once a date is agreed. Party enquiries on this site are not a booking on their own.
+      </li>
+      <li>
+        <strong>SEND and visit adjustments.</strong> If you tell us something that helps a visit go well (for example a quieter sitting, or a health or sensory need), we only keep what we need to make that visit work. We do not use it for anything else, and we do not share it for marketing. Where that includes health information, it is special category data. Legal basis: explicit consent, because you chose to tell us so we can help.
+      </li>
+      <li>
+        <strong>Messages you send us</strong> by email, Facebook or Instagram. We read them to reply. Those apps have their own privacy policies as well.
+      </li>
     </ul>
+    <p>
+      We do not run a newsletter sign-up on this website. We do not sell your information. We do not use advertising networks.
+    </p>
 
     <h2>Who else sees it</h2>
+    <p>A few companies help us run the site and the bookings. They only get what they need to do that job.</p>
+    <ul>
+      <li>
+        <strong>Netlify</strong> hosts the website and processes the enquiry forms so the message reaches us.
+      </li>
+      <li>
+        <strong>{site.booking.provider}</strong> runs the booking calendar. See their privacy notice on their website.
+      </li>
+      <li>
+        <strong>{site.booking.payments}</strong> takes card payments through {site.booking.provider}. We never see your full card number. This website does not collect card details.
+      </li>
+      <li>
+        <strong>Meta</strong> (Facebook and Instagram) if you choose to message us there.
+      </li>
+    </ul>
     <p>
-      Hosting is on Netlify. Forms submitted on this site are processed by Netlify so they reach us. Bookings and payments are processed by Bookwhen and Stripe. We do not sell your information. We do not use advertising networks.
+      Some of those companies are based outside the UK. Where that happens, they should use a lawful way to protect the information, such as the UK’s approved contracts. If we have to share something because the law says so (for example a genuine incident, or a request we must follow), we will.
     </p>
 
     <h2>Cookies</h2>
     <p>
-      This website does not set analytics or marketing cookies. We have not added a consent banner because we are not asking to track you. Hosting and form submission may use strictly necessary cookies to keep the site secure and to send your message. If we ever add optional analytics, we will put a proper notice up first.
+      This website does not set analytics or marketing cookies, and we have not put up a consent banner because we are not asking to track you. Hosting and form submission may use strictly necessary cookies to keep the site secure and to send your message.
+    </p>
+    <p>
+      The booking calendar is an embed from {site.booking.provider}. When you use it, {site.booking.provider} and {site.booking.payments} may set their own cookies to take the booking and the payment. That happens on their systems, not as extra tracking we have added on top.
+    </p>
+    <p>
+      If we ever add optional analytics, we will put a proper notice up first.
     </p>
 
     <h2>How long we keep it</h2>
     <p>
-      Enquiry messages: as long as needed to deal with them, then deleted. Booking records: as long as needed to run the business, meet accounting rules, and handle genuine queries or incidents.
+      Enquiry messages: until we have dealt with them, then we delete them. We do not keep form submissions as a mailing list.
+    </p>
+    <p>
+      Booking and payment records: as long as we need them to run the business, to meet tax and accounting rules, and to handle genuine queries or incidents. After that we delete them.
+    </p>
+    <p>
+      Adjustment notes for a visit: for that booking, and only as long as we still need them for that purpose.
     </p>
 
     <h2>Your rights</h2>
     <p>
-      You can ask for a copy of your information, ask us to correct it, delete it, or restrict how we use it, and you can object to processing based on legitimate interests. To do that, use the contact form. You can complain to the Information Commissioner’s Office at <a class="font-bold underline underline-offset-2" href="https://ico.org.uk">ico.org.uk</a>.
+      You can ask for a copy of your information, ask us to correct it, delete it, or restrict how we use it. You can object to processing that is based on legitimate interests. Where we are relying on consent, you can withdraw it. That will not change anything we already did while we had it.
+    </p>
+    <p>
+      To do any of that, email <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> or use the contact form. You also have the right to complain to the Information Commissioner’s Office at <a class="font-bold underline underline-offset-2" href="https://ico.org.uk">ico.org.uk</a>.
     </p>
 
     <h2>Children</h2>
     <p>
-      This site is for adults booking for children. We do not knowingly collect information directly from children through the website.
+      This site is for adults booking for children. We do not knowingly collect information directly from children through the website. If a party enquiry includes a child’s age, that comes from the adult who filled in the form.
+    </p>
+    <p>
+      Photos on this website are of the rooms. They are not photos of visiting families.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      If this policy changes, we will update this page and the date at the top. The current version is the one on this website.
     </p>
   </article>
 </BaseLayout>

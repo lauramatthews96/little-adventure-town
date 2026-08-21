@@ -1,0 +1,27 @@
+---
+interface Props {
+  eyebrow: string;
+  accent?: "pink" | "meadow" | "teal" | "gold" | "coral";
+  mark?: string;
+}
+
+const { eyebrow, accent = "pink", mark = "★" } = Astro.props;
+---
+
+<header class={`page-hero page-hero-${accent}`}>
+  <div class="page-confetti" aria-hidden="true">
+    <span class="page-float page-float-1">{mark}</span>
+    <span class="page-float page-float-2">{mark}</span>
+    <span class="page-float page-float-3">{mark}</span>
+    <span class="page-float page-float-4">{mark}</span>
+    <span class="page-float page-float-5">{mark}</span>
+    <span class="page-float page-float-6">{mark}</span>
+  </div>
+  <p class="eyebrow">{eyebrow}</p>
+  <slot name="title" />
+  {Astro.slots.has("default") && (
+    <div class="page-hero-lede">
+      <slot />
+    </div>
+  )}
+</header>

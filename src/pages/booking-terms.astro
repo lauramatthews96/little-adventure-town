@@ -1,12 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
 import { childPriceLine, site } from "../config/site";
 ---
 
 <BaseLayout page="bookingTerms">
   <article class="prose-page mx-auto px-4 py-10 md:px-6 md:py-16">
-    <h1>Booking terms</h1>
-    <p class="mt-4 text-navy-muted">These cover play sessions booked through this website and Bookwhen. Last updated 21 August 2026.</p>
+    <PageHero eyebrow="The small print" accent="pink" mark="★">
+      <h1 slot="title">Booking terms</h1>
+      <p>These cover play sessions booked through this website and Bookwhen. Last updated 21 August 2026.</p>
+    </PageHero>
 
     <h2>The booking</h2>
     <p>

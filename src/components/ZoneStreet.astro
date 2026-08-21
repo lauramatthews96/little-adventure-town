@@ -10,10 +10,10 @@ interface Props {
 const { items = zones } = Astro.props;
 
 const fascia: Record<Zone["accent"], string> = {
-  sea: "#1f6f8f",
-  sand: "#c24e32",
+  sea: "#1a90c8",
+  sand: "#f05638",
   volcano: "#8e3428",
-  castle: "#b3265a",
+  castle: "#e91e6c",
   farm: "#a33b2c",
   space: "#1a2744",
 };
@@ -46,7 +46,7 @@ const fascia: Record<Zone["accent"], string> = {
   </div>
 
   <div class="town-street-wrap">
-    <ol class="town-street" tabindex="0" aria-label="Play zones along the town street">
+    <ol class="town-street" tabindex="0" aria-label="Play zones along the town street" data-town-street>
       {
         items.map((zone, index) => (
           <li class="town-stop">
@@ -75,5 +75,21 @@ const fascia: Record<Zone["accent"], string> = {
         ))
       }
     </ol>
+    <p class="town-scroll-cue" data-town-cue aria-hidden="true">
+      <span>Scroll to view</span>
+      <svg width="28" height="20" viewBox="0 0 28 20" fill="none">
+        <path d="M2 10h22" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path>
+        <path d="M16.5 3.5 24.5 10 16.5 16.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </p>
   </div>
 </section>
+
+<script>
+  const street = document.querySelector("[data-town-street]");
+  const cue = document.querySelector("[data-town-cue]");
+  if (street instanceof HTMLElement && cue instanceof HTMLElement) {
+    const hide = () => cue.classList.add("is-hidden");
+    street.addEventListener("scroll", hide, { once: true, passive: true });
+  }
+</script>

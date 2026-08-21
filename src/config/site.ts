@@ -308,6 +308,10 @@ export const zones: Zone[] = [
         src: "/images/zones/under-the-sea-felt.jpg",
         alt: "The ocean felt board, with a yellow submarine, sea creatures and a mural of fish and coral.",
       },
+      {
+        src: "/images/zones/under-the-sea-whale.jpg",
+        alt: "A blue whale activity board on the sea wall, with gears, a xylophone and bead mazes.",
+      },
     ],
     placeholder: "/images/placeholders/under-the-sea.svg",
     photoSize: "768 × 1024",
@@ -331,6 +335,14 @@ export const zones: Zone[] = [
       {
         src: "/images/zones/the-beach-chest.jpg",
         alt: "The sand pit with a toy boat and a wooden treasure chest, beside the high-street window.",
+      },
+      {
+        src: "/images/zones/the-beach-ship.jpg",
+        alt: "The sand pit boat with a pirate hat on the mast, buckets in the sand and an inflatable palm tree.",
+      },
+      {
+        src: "/images/zones/the-beach-boat.jpg",
+        alt: "The wooden pirate boat in the sand pit, with Newgate Street through the window behind.",
       },
     ],
     placeholder: "/images/placeholders/the-beach.svg",
@@ -361,8 +373,8 @@ export const zones: Zone[] = [
         alt: "A close look at the textured stegosaurus sensory board, with a beanbag on the grass.",
       },
       {
-        src: "/images/zones/dinosaur-puzzle.jpg",
-        alt: "A dinosaur puzzle on the painted volcano wall, with a beanbag on the grass.",
+        src: "/images/zones/dinosaur-nook.jpg",
+        alt: "The dinosaur corner, with a long-necked mural, figurines on the grass shelf and a beanbag.",
       },
     ],
     placeholder: "/images/placeholders/dinosaur.svg",
@@ -392,6 +404,18 @@ export const zones: Zone[] = [
         src: "/images/zones/the-castle-dressing.jpg",
         alt: "The castle dressing-up corner, with princess dresses, knight helmets and a little vanity.",
       },
+      {
+        src: "/images/zones/the-castle-dollhouse.jpg",
+        alt: "A wooden toy palace on a pink play table, with little figures in the towers and rooms.",
+      },
+      {
+        src: "/images/zones/the-castle-mural.jpg",
+        alt: "A painted prince and princess on the castle wall, with blue flowers climbing the stone.",
+      },
+      {
+        src: "/images/zones/the-castle-window.jpg",
+        alt: "Looking through a castle arch at a tea party table on the grass, with flowers on the sill.",
+      },
     ],
     placeholder: "/images/placeholders/the-castle.svg",
     photoSize: "768 × 1024",
@@ -415,6 +439,18 @@ export const zones: Zone[] = [
       {
         src: "/images/zones/the-farm-barn.jpg",
         alt: "The red barn beside the sand pit, with sunflowers and a white picket fence.",
+      },
+      {
+        src: "/images/zones/the-farm-door.jpg",
+        alt: "The red barn doorway, with toy tractors, a highland cow and the farm shop through the window.",
+      },
+      {
+        src: "/images/zones/the-farm-shop.jpg",
+        alt: "The little farm shop, with a striped awning, play fruit in baskets and a toy till.",
+      },
+      {
+        src: "/images/zones/the-farm-shelf.jpg",
+        alt: "A grass farm shelf of animals, a red barn and crocheted bees, with a sheep and hen on the floor.",
       },
     ],
     placeholder: "/images/placeholders/the-farm.svg",
@@ -652,7 +688,7 @@ export const faqGroups = [
       {
         id: "get-hold",
         question: "How do I get hold of you?",
-        answer: `The quickest way is a message on <a href="${site.social.facebookUrl}" target="_blank" rel="noopener noreferrer">Facebook</a>, where we're ${site.social.facebookName}. You'll find us on Instagram as well at <a href="${site.social.instagramUrl}">${site.social.instagramHandle}</a>. If you'd rather email, we're at <a href="mailto:${site.contact.email}">${site.contact.email}</a>.`,
+        answer: `The quickest way is a message on <a href="${site.social.facebookUrl}" target="_blank" rel="noopener noreferrer">Facebook</a>, where we're ${site.social.facebookName}. You'll find us on <a href="${site.social.instagramUrl}" target="_blank" rel="noopener noreferrer">Instagram</a> as well. If you'd rather email, we're at <a href="mailto:${site.contact.email}">${site.contact.email}</a>.`,
       },
       {
         id: "where-exactly",

@@ -13,7 +13,7 @@ const { currentPath } = Astro.props;
   <div class="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 md:px-6">
     <BrandMark />
 
-    <nav class="ml-auto hidden items-center gap-1 md:flex" aria-label="Primary">
+    <nav class="ml-auto hidden items-center gap-1 lg:flex" aria-label="Primary">
       {
         nav.map((item) => (
           <a
@@ -30,14 +30,13 @@ const { currentPath } = Astro.props;
       }
     </nav>
 
-    <a href="/book" class="btn btn-primary ml-auto shrink-0 md:ml-3">
-      <span class="sm:hidden">Book</span>
-      <span class="hidden sm:inline">Book a session</span>
+    <a href="/book" class="btn btn-primary btn-book-now ml-auto shrink-0 lg:ml-3">
+      BOOK NOW!
     </a>
 
     <button
       type="button"
-      class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border-2 border-navy bg-cloud md:hidden"
+      class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border-2 border-navy bg-cloud lg:hidden"
       id="menu-toggle"
       aria-expanded="false"
       aria-controls="nav-panel"
@@ -49,7 +48,7 @@ const { currentPath } = Astro.props;
     </button>
   </div>
 
-  <div class="mx-auto max-w-6xl px-4 md:hidden" id="nav-panel" hidden>
+  <div class="mx-auto max-w-6xl px-4 lg:hidden" id="nav-panel" hidden>
     <nav class="nav-panel flex flex-col pb-3" aria-label="Primary mobile">
       {
         nav.map((item) => (

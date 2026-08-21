@@ -1,25 +1,26 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
 import BookwhenEmbed from "../components/BookwhenEmbed.astro";
-import ToConfirm from "../components/ToConfirm.astro";
 import DealBadge from "../components/DealBadge.astro";
 import { childPriceLine, site } from "../config/site";
 ---
 
 <BaseLayout page="book" stickyCta={false}>
   <article class="mx-auto max-w-5xl px-4 py-10 md:px-6 md:py-16">
-    <p class="eyebrow">Bishop Auckland</p>
-    <h1>Book a play session</h1>
-    <p class="mt-4 max-w-3xl text-xl text-navy-muted">
-      {site.play.durationLabel}. {childPriceLine()}. Adults go free. {site.hours.days}. Book a sitting before you come.
-    </p>
+    <PageHero eyebrow="Bishop Auckland" accent="pink" mark="★">
+      <h1 slot="title">Book a play session</h1>
+      <p>
+        {site.play.durationLabel}. {childPriceLine()}. Adults go free. {site.hours.days}. You’ll need to book a sitting before you come.
+      </p>
+    </PageHero>
 
-    <dl class="mt-8 grid gap-4 sm:grid-cols-3">
-      <div class="card">
+    <dl class="book-stat-grid">
+      <div class="story-card" style="--story: var(--color-pink)">
         <dt class="text-sm font-bold uppercase tracking-wide text-navy-muted">Days</dt>
         <dd class="mt-1 font-display text-2xl">{site.hours.days}</dd>
       </div>
-      <div class="card">
+      <div class="story-card" style="--story: var(--color-teal)">
         <dt class="text-sm font-bold uppercase tracking-wide text-navy-muted">Sittings</dt>
         <dd class="book-sittings">
           {
@@ -35,7 +36,7 @@ import { childPriceLine, site } from "../config/site";
           }
         </dd>
       </div>
-      <div class="card book-price-card">
+      <div class="story-card book-price-card" style="--story: var(--color-meadow)">
         <dt class="text-sm font-bold uppercase tracking-wide text-navy-muted">Price</dt>
         <dd class="mt-2">
           <DealBadge />
@@ -45,7 +46,7 @@ import { childPriceLine, site } from "../config/site";
     </dl>
 
     <div class="book-notes">
-      <section class="card book-note" aria-labelledby="expect-heading">
+      <section class="card book-note" style="border-top: 8px solid var(--color-pink)" aria-labelledby="expect-heading">
         <h2 id="expect-heading">What to expect</h2>
         <ul class="icon-lines">
           <li>
@@ -107,7 +108,7 @@ import { childPriceLine, site } from "../config/site";
         </ul>
       </section>
 
-      <section class="card book-note" aria-labelledby="included-heading">
+      <section class="card book-note" style="border-top: 8px solid var(--color-meadow)" aria-labelledby="included-heading">
         <h2 id="included-heading">What’s included</h2>
         <ul class="icon-lines">
           <li>
@@ -151,7 +152,7 @@ import { childPriceLine, site } from "../config/site";
       </section>
     </div>
 
-    <aside class="card mt-12" aria-labelledby="quantity-heading">
+    <aside class="story-card mt-12" style="--story: var(--color-teal)" aria-labelledby="quantity-heading">
       <h2 id="quantity-heading" class="text-2xl">Booking more than one child?</h2>
       <p class="mt-2">
         Change the quantity on the sitting rather than making two bookings. That’s how siblings get on the same slot.
@@ -165,10 +166,10 @@ import { childPriceLine, site } from "../config/site";
       <BookwhenEmbed />
     </div>
 
-    <section class="mt-12" aria-labelledby="cancel-heading">
+    <section class="mt-12 story-card" style="--story: var(--color-pink)" aria-labelledby="cancel-heading">
       <h2 id="cancel-heading">Cancellations</h2>
       <p class="mt-3">
-        The cancellation and refund wording is <ToConfirm value={site.policies.cancellation} />. It will appear here and in Bookwhen at checkout before we take live bookings. Do not assume a refund until that is published.
+        {site.policies.cancellation} If we have to cancel, you’ll get a full refund or a move to another day, whichever suits you best.
       </p>
       <p class="mt-4">
         Payments are processed by Stripe through Bookwhen. We do not take card details on this website.

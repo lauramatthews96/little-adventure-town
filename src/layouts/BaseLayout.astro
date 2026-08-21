@@ -70,10 +70,10 @@ const showSticky = stickyCta && path !== "/book";
     <OpeningBanner />
     <div class="site-ribbon" aria-hidden="true"></div>
     <Header currentPath={path} />
+    <div class="site-ribbon" aria-hidden="true"></div>
     <main id="main">
       <slot />
     </main>
-    <div class="site-ribbon" aria-hidden="true"></div>
     <Footer />
     {showSticky && <MobileStickyCta />}
   </body>

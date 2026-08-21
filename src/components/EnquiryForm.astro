@@ -8,7 +8,7 @@ interface Props {
 const { formName, submitLabel = "Send message", extraFields = "none" } = Astro.props;
 ---
 
-<form name={formName} method="POST" action="/contact?sent=1" data-netlify="true" netlify-honeypot="bot-field" class="card">
+<form name={formName} method="POST" action="/contact?sent=1" data-netlify="true" netlify-honeypot="bot-field" class="story-card" style="--story: var(--color-pink)">
   <input type="hidden" name="form-name" value={formName} />
   <input type="hidden" name="_redirect" value="/contact?sent=1" />
   <p class="honeypot">

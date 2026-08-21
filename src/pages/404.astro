@@ -1,15 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
 ---
 
 <BaseLayout title="Page not found | Little Adventure Town" description="That page isn’t in the town. Head home or book a session at Little Adventure Town in Bishop Auckland." path="/404" noindex>
-  <article class="mx-auto max-w-3xl px-4 py-16 md:px-6">
-    <p class="eyebrow">Wrong turning</p>
-    <h1>This street doesn’t exist.</h1>
-    <p class="mt-4 text-xl text-navy-muted">The page you asked for isn’t on the site. The booking button still is.</p>
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a class="btn btn-primary" href="/book">Book a session</a>
-      <a class="btn btn-secondary" href="/">Back to the town</a>
-    </div>
+  <article class="mx-auto max-w-3xl px-4 py-10 md:px-6 md:py-16">
+    <PageHero eyebrow="Wrong turning" accent="coral" mark="?">
+      <h1 slot="title">This street doesn’t exist.</h1>
+      <p>The page you asked for isn’t on the site. The booking button still is.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="btn btn-primary btn-book-now" href="/book">BOOK NOW!</a>
+        <a class="btn btn-secondary" href="/">Back to the town</a>
+      </div>
+    </PageHero>
   </article>
 </BaseLayout>
