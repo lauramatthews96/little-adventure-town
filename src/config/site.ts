@@ -241,7 +241,6 @@ export const site = {
 
 export const nav = [
   { href: "/", label: "Home" },
-  { href: "/book", label: "Book" },
   { href: "/whats-inside", label: "What’s inside" },
   { href: "/parties", label: "Parties" },
   { href: "/faq", label: "FAQs" },
