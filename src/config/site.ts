@@ -77,8 +77,8 @@ export const site = {
   },
 
   opening: {
-    date: "Saturday 29 August",
-    status: "Opening Saturday 29 August",
+    date: "Sunday 30th August",
+    status: "Opening Sunday 30th August",
   },
 
   hours: {
