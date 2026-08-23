@@ -296,7 +296,7 @@ export const zones: Zone[] = [
     summary: "A submarine with portholes, a painted reef, and sea creatures waiting just beyond the glass.",
     detail:
       "Climb aboard the submarine and look out through the portholes. The reef is painted by hand around you: fish, coral, and the feeling of being somewhere else entirely, still in Bishop Auckland.",
-    alt: "A yellow submarine with red portholes against a painted underwater wall of fish, a turtle and bubbles.",
+    alt: "The yellow submarine with red portholes, painted fish on the wall, and sea creature toys inside.",
     image: "/images/zones/under-the-sea.jpg",
     gallery: [
       {
@@ -317,7 +317,7 @@ export const zones: Zone[] = [
       },
     ],
     placeholder: "/images/placeholders/under-the-sea.svg",
-    photoSize: "768 × 1024",
+    photoSize: "1024 × 768",
     accent: "sea",
   },
   {
@@ -360,7 +360,7 @@ export const zones: Zone[] = [
     summary: "A painted volcano, a cave tunnel, and a dinosaur or two keeping watch.",
     detail:
       "The volcano is painted onto the room itself. Crawl the cave tunnel, come out the other side, and the town has changed around you. This is the bit children remember on the way home.",
-    alt: "The painted volcano cave, with dinosaur toys on the grass through the arched entrance.",
+    alt: "The painted volcano, with red lava down the sides and dinosaur toys on the grass through the cave.",
     image: "/images/zones/dinosaur.jpg",
     gallery: [
       {
@@ -381,7 +381,7 @@ export const zones: Zone[] = [
       },
     ],
     placeholder: "/images/placeholders/dinosaur.svg",
-    photoSize: "1024 × 768",
+    photoSize: "768 × 1024",
     accent: "volcano",
   },
   {
@@ -454,6 +454,10 @@ export const zones: Zone[] = [
       {
         src: "/images/zones/the-farm-shelf.jpg",
         alt: "A grass farm shelf of animals, a red barn and crocheted bees, with a sheep and hen on the floor.",
+      },
+      {
+        src: "/images/zones/the-farm-table.jpg",
+        alt: "The farm play table, with barns, tractors and animals, and a farm mural on the wall.",
       },
     ],
     placeholder: "/images/placeholders/the-farm.svg",
