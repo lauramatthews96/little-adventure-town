@@ -19,7 +19,7 @@ import { formatAddress, site } from "../config/site";
       <PhotoFrame
         src="/images/zones/town-windows.jpg"
         placeholder="/images/zones/town-windows.jpg"
-        alt="The grass play floor by the high-street windows, with yellow chairs for grown-ups and toys for babies and toddlers."
+        alt="The grass play floor by the high-street windows, with yellow chairs for grown-ups and toys for little ones."
         label="Little Adventure Town"
         size="1024 × 768"
         aspect="4 / 3"
@@ -29,8 +29,9 @@ import { formatAddress, site } from "../config/site";
     <div class="visit-grid">
       <section class="story-card" style="--story: var(--color-pink)" aria-labelledby="hours-heading">
         <h2 id="hours-heading">Opening hours</h2>
-        <p>{site.hours.days}. Play sittings at {site.play.sessions.map((s) => s.label).join(", ")}.</p>
-        <p class="mt-2">{site.hours.closed}.</p>
+        <p>{site.hours.days}. {site.hours.closed}.</p>
+        <p class="mt-2">Weekdays ({site.hours.weekdays}): {site.play.weekdaySessions.map((s) => s.label).join(", ")}.</p>
+        <p class="mt-2">Weekends: {site.play.weekendSessions.map((s) => s.label).join(", ")}.</p>
         <p class="mt-2">{site.hours.note} The café is walk-in when you get here.</p>
       </section>
       <section class="story-card" style="--story: var(--color-meadow)" aria-labelledby="park-heading">
@@ -51,7 +52,7 @@ import { formatAddress, site } from "../config/site";
       <section class="story-card" style="--story: var(--color-gold)" aria-labelledby="rules-heading">
         <h2 id="rules-heading">The short version of the rules</h2>
         <ul class="mt-2 space-y-2">
-          <li>Book first. No walk-in play.</li>
+          <li>{site.play.bookingNote}</li>
           <li>Socks on the play floor, grown-ups too.</li>
           <li>An adult stays with their child.</li>
           <li>Food and buggies: see the <a class="font-bold underline underline-offset-2" href="/house-rules">house rules</a>.</li>

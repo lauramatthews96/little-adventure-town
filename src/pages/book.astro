@@ -11,7 +11,7 @@ import { childPriceLine, site } from "../config/site";
     <PageHero eyebrow="Bishop Auckland" accent="pink" mark="★">
       <h1 slot="title">Book a play session</h1>
       <p>
-        {site.play.durationLabel}. {childPriceLine()}. Adults go free. {site.hours.days}. You’ll need to book a sitting before you come.
+        {site.play.durationLabel}. {childPriceLine()}. Adults go free. {site.hours.days}. {site.play.bookingNote}
       </p>
     </PageHero>
 
@@ -23,8 +23,21 @@ import { childPriceLine, site } from "../config/site";
       <div class="story-card" style="--story: var(--color-teal)">
         <dt class="text-sm font-bold uppercase tracking-wide text-navy-muted">Sittings</dt>
         <dd class="book-sittings">
+          <p class="book-sittings-kicker">Weekdays ({site.hours.weekdays})</p>
           {
-            site.play.sessions.map((session, index) => (
+            site.play.weekdaySessions.map((session, index) => (
+              <p>
+                <span class="book-sitting-num" aria-hidden="true">{index + 1}</span>
+                <span class="book-sitting-time">
+                  <strong>{session.start}</strong>
+                  <span> to {session.end}</span>
+                </span>
+              </p>
+            ))
+          }
+          <p class="book-sittings-kicker">Weekends</p>
+          {
+            site.play.weekendSessions.map((session, index) => (
               <p>
                 <span class="book-sitting-num" aria-hidden="true">{index + 1}</span>
                 <span class="book-sitting-time">

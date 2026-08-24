@@ -1,6 +1,9 @@
 ---
 import { site } from "../config/site";
 import DealBadge from "./DealBadge.astro";
+
+const weekdaySittings = site.play.weekdaySessions;
+const weekendSittings = site.play.weekendSessions;
 ---
 
 <section class="mx-auto mt-16 max-w-6xl px-4 md:px-6" aria-labelledby="session-heading">
@@ -14,14 +17,32 @@ import DealBadge from "./DealBadge.astro";
         <p class="session-days">{site.hours.days}</p>
       </div>
       <p class="mt-4 max-w-xl text-lg text-navy-muted">
-        Booking is essential. Grab a sitting before you come, so it stays calm for everyone.
+        {site.play.bookingNote} Book ahead if you can, so it stays calm for everyone.
       </p>
 
       <div class="session-tray">
-        <p class="session-tray-label">Three sittings · {site.play.durationLabel} each</p>
-        <ol class="session-sittings" aria-label="Three sittings">
+        <p class="session-tray-label">Weekdays · {site.hours.weekdays} · {site.play.durationLabel} each</p>
+        <ol class="session-sittings is-three" aria-label={`Weekday sittings, ${site.hours.weekdays}`}>
           {
-            site.play.sessions.map((session, index) => (
+            weekdaySittings.map((session, index) => (
+              <li>
+                <span class="sr-only">Sitting {index + 1}. </span>
+                <span class="session-num" aria-hidden="true">{index + 1}</span>
+                <p class="session-time">
+                  <strong>{session.start}</strong>
+                  <span>to {session.end}</span>
+                </p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div class="session-tray">
+        <p class="session-tray-label">Weekends · four sittings · {site.play.durationLabel} each</p>
+        <ol class="session-sittings is-four" aria-label="Weekend sittings">
+          {
+            weekendSittings.map((session, index) => (
               <li>
                 <span class="sr-only">Sitting {index + 1}. </span>
                 <span class="session-num" aria-hidden="true">{index + 1}</span>

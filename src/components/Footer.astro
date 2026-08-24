@@ -10,14 +10,15 @@ import InstagramIcon from "./InstagramIcon.astro";
     <div>
       <p class="font-display text-2xl font-semibold">Little Adventure Town</p>
       <p class="mt-2 text-navy-muted">
-        A handmade indoor adventure town on Newgate Street, for babies, toddlers and pre-schoolers.
+        {site.tagline}
       </p>
       <p class="mt-4">
         {formatAddress()}
       </p>
       <p class="mt-2">
         {site.hours.days}<br />
-        {site.play.sessions.map((s) => s.label).join(" · ")}
+        Weekdays: {site.play.weekdaySessions.map((s) => s.label).join(" · ")}<br />
+        Weekends: {site.play.weekendSessions.map((s) => s.label).join(" · ")}
       </p>
     </div>
 

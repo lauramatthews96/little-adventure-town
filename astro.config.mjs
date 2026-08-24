@@ -9,7 +9,8 @@ export default defineConfig({
   trailingSlash: "never",
   redirects: {
     "/classes": "/",
-    "/send": "/#send",
+    "/send": "/#sen",
+    "/sen": "/#sen",
   },
   vite: {
     plugins: [tailwindcss()],

@@ -10,7 +10,7 @@ import { site, hero } from "../config/site";
 <BaseLayout page="home">
   <section class="home-hero mx-auto max-w-7xl px-4 pb-6 pt-8 md:px-6 md:pt-12">
     <PageHero eyebrow="Bishop Auckland · County Durham" accent="pink" mark="★">
-      <h1 slot="title">A little town of handmade worlds, on Newgate Street.</h1>
+      <h1 slot="title">A little town where children can step into another world, and let their imaginations run wild.</h1>
     </PageHero>
     <div class="hero-photo">
       <img
@@ -39,7 +39,7 @@ import { site, hero } from "../config/site";
             <path d="M4.5 20V10.5L12 5l7.5 5.5V20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
             <path d="M9.5 20v-6h5v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
           </svg>
-          <span>Come along with babies, toddlers or pre-schoolers. SEND friendly, with sensory play.</span>
+          <span>{site.audienceNote} SEN friendly, with sensory play.</span>
         </li>
         <li>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -47,8 +47,13 @@ import { site, hero } from "../config/site";
             <path d="M8 3.75v3.5M16 3.75v3.5M4 10h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
           </svg>
           <span>
-            Opening {site.opening.date}. {site.hours.days}, three sittings:
-            <span class="hero-facts-times">{site.play.sessions.map((s) => s.label).join(" · ")}</span>
+            Opening {site.opening.date}.
+            <span class="hero-facts-times">
+              Weekdays ({site.hours.weekdays}): {site.play.weekdaySessions.map((s) => s.label).join(" · ")}
+            </span>
+            <span class="hero-facts-times">
+              Weekends: {site.play.weekendSessions.map((s) => s.label).join(" · ")}
+            </span>
           </span>
         </li>
         <li>
@@ -56,7 +61,7 @@ import { site, hero } from "../config/site";
             <path d="M6.5 8.5h11a1.5 1.5 0 0 1 1.5 1.5v9l-3.2-1.6-3.3 1.6-3.3-1.6L5 19v-9a1.5 1.5 0 0 1 1.5-1.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
             <path d="M9 12.25h6M9 15.25h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
           </svg>
-          <span>You’ll need to book a sitting. No walk-in play, so it stays nice and calm.</span>
+          <span>{site.play.bookingNote}</span>
         </li>
       </ul>
     </div>
@@ -90,7 +95,7 @@ import { site, hero } from "../config/site";
         <h2 class="text-2xl">Built by hand</h2>
         <p class="mt-2">A submarine, a sand pit, a volcano with a cave, a castle tea party, a red barn, and a dark room of stars. These rooms are why you come, not a climbing frame with a café stuck on the side.</p>
       </article>
-      <article class="card why-card why-card-send" id="send" style="--why: var(--color-teal)">
+      <article class="card why-card why-card-sen" id="sen" style="--why: var(--color-teal)">
         <span class="why-icon" aria-hidden="true">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
             <path d="M12 2.6c2.25 3.9 2.85 8.1 2.85 12.6H9.15C9.15 10.7 9.75 6.5 12 2.6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
@@ -99,8 +104,8 @@ import { site, hero } from "../config/site";
             <path d="M10.25 16.7 12 21.3 13.75 16.7" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
           </svg>
         </span>
-        <h2 class="text-2xl">SEND friendly</h2>
-        <p class="mt-2">We’re SEND friendly, with sensory play in ordinary sittings. If a quieter sitting would help, say so when you book or drop us a message.</p>
+        <h2 class="text-2xl">SEN friendly</h2>
+        <p class="mt-2">We’re SEN friendly, with sensory play in ordinary sittings. If a quieter sitting would help, say so when you book or drop us a message.</p>
       </article>
     </div>
   </section>

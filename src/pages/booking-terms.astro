@@ -8,12 +8,12 @@ import { childPriceLine, site } from "../config/site";
   <article class="prose-page mx-auto px-4 py-10 md:px-6 md:py-16">
     <PageHero eyebrow="The small print" accent="pink" mark="★">
       <h1 slot="title">Booking terms</h1>
-      <p>These cover play sessions booked through this website and Bookwhen. Last updated 21 August 2026.</p>
+      <p>These cover play sessions booked through this website and Bookwhen. Last updated 24 August 2026.</p>
     </PageHero>
 
     <h2>The booking</h2>
     <p>
-      A play session is {site.play.durationLabel}. {childPriceLine()}. Adults go free. Sessions run {site.hours.days} at {site.play.sessions.map((s) => s.label).join(", ")}. Booking is essential. There is no walk-in general admission.
+      A play session is {site.play.durationLabel}. {childPriceLine()}. Adults go free. Sessions run {site.hours.days}. Weekdays ({site.hours.weekdays}): {site.play.weekdaySessions.map((s) => s.label).join(", ")}. Weekends: {site.play.weekendSessions.map((s) => s.label).join(", ")}. {site.play.bookingNote}
     </p>
     <p>
       Bookings are made through Bookwhen. Payment is taken by Stripe. This website does not collect card numbers.
@@ -21,7 +21,7 @@ import { childPriceLine, site } from "../config/site";
 
     <h2>Who the session is for</h2>
     <p>
-      Daytime play sessions are for babies, toddlers and pre-school children. An adult must supervise their child for the whole sitting. Adults go free.
+      {site.audienceNote} An adult must supervise their child for the whole sitting. Adults go free.
     </p>
 
     <h2>Cancellations and refunds</h2>

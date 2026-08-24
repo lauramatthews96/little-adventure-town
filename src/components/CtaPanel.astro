@@ -14,7 +14,7 @@ const { heading = "Seen enough?", compact = false } = Astro.props;
   <div>
     <h2 class:list={[compact && "text-2xl"]}>{heading}</h2>
     <p>
-      {site.hours.days}, three sittings, {site.play.durationLabel}. {childPriceLine()}. Adults go free.
+      {site.hours.days}, {site.play.durationLabel}. Three sittings on weekdays, four at the weekend. {childPriceLine()}. Adults go free.
     </p>
   </div>
   <a class="btn btn-primary btn-book-now" href="/book">BOOK NOW!</a>

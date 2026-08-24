@@ -145,7 +145,7 @@
   }
 }
 
-.why-card-send .why-link {
+.why-card-sen .why-link {
   margin-top: 0;
   padding-top: 0.35rem;
 }
@@ -743,6 +743,10 @@ body.has-sticky-book {
     linear-gradient(180deg, color-mix(in srgb, var(--color-mint) 45%, white), var(--color-mint));
 }
 
+.session-tray + .session-tray {
+  margin-top: 1rem;
+}
+
 .session-tray-label {
   margin: 0 0 0.75rem;
   text-align: center;
@@ -762,8 +766,18 @@ body.has-sticky-book {
 }
 
 @media (min-width: 640px) {
-  .session-sittings {
+  .session-sittings.is-three {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .session-sittings.is-four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .session-sittings.is-four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -813,6 +827,10 @@ body.has-sticky-book {
 
 .session-sittings li:nth-child(3) .session-num {
   background: var(--color-teal);
+}
+
+.session-sittings li:nth-child(4) .session-num {
+  background: var(--color-gold);
 }
 
 .session-time {
@@ -1133,6 +1151,22 @@ body.has-sticky-book {
   margin: 0.55rem 0 0;
 }
 
+.book-sittings p.book-sittings-kicker {
+  display: block;
+  margin: 0.65rem 0 0.2rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-navy-muted);
+  white-space: normal;
+}
+
+.book-sittings p.book-sittings-kicker:first-child {
+  margin-top: 0;
+}
+
 .book-sittings p {
   display: flex;
   align-items: baseline;
@@ -1426,12 +1460,6 @@ body.has-sticky-book {
   display: grid;
   gap: 0.85rem;
   margin-top: 1rem;
-}
-
-@media (min-width: 640px) {
-  .party-food {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 .party-food-card {

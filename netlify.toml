@@ -31,10 +31,20 @@
 
 [[redirects]]
   from = "/send"
-  to = "/#send"
+  to = "/#sen"
   status = 301
 
 [[redirects]]
   from = "/send/"
-  to = "/#send"
+  to = "/#sen"
+  status = 301
+
+[[redirects]]
+  from = "/sen"
+  to = "/#sen"
+  status = 301
+
+[[redirects]]
+  from = "/sen/"
+  to = "/#sen"
   status = 301

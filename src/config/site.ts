@@ -26,7 +26,9 @@ export const site = {
   name: "Little Adventure Town",
   legalName: "Little Adventure Town Ltd",
   companyNumber: "17122545",
-  tagline: "A handmade indoor adventure town for babies, toddlers and pre-schoolers, on Newgate Street.",
+  tagline: "A handmade indoor adventure town on Newgate Street, for children who love role play.",
+  audienceNote:
+    "We don't put an age limit on children, as they all develop differently. If your child still loves role play, please bring them along.",
   description:
     "Little Adventure Town is an indoor adventure play café on Newgate Street in Bishop Auckland. Handmade rooms, a café, and small booked sittings. Not your typical soft play frame.",
   url: siteUrl,
@@ -84,14 +86,21 @@ export const site = {
   hours: {
     /** Human-readable session days. Closed Monday unless this changes. */
     days: "Tuesday to Sunday",
+    weekdays: "Tuesday to Friday",
+    weekends: "Saturday and Sunday",
     closed: "Closed Monday",
     cafeHours: TO_CONFIRM,
-    note: "Play is booked, so grab a sitting before you come.",
+    note: "Booking a sitting is advisable. Walk-ins are welcome, but not guaranteed.",
     schema: [
       {
-        days: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] as const,
-        opens: "09:30",
-        closes: "14:45",
+        days: ["Tuesday", "Wednesday", "Thursday", "Friday"] as const,
+        opens: "09:15",
+        closes: "14:30",
+      },
+      {
+        days: ["Saturday", "Sunday"] as const,
+        opens: "09:00",
+        closes: "16:30",
       },
     ],
   },
@@ -104,12 +113,19 @@ export const site = {
     durationMinutes: 90,
     durationLabel: "90 minutes",
     maxChildren: 20,
-    bookingEssential: true,
-    walkIn: false,
-    sessions: [
-      { start: "09:30", end: "11:00", label: "09:30 to 11:00" },
-      { start: "11:30", end: "13:00", label: "11:30 to 13:00" },
-      { start: "13:15", end: "14:45", label: "13:15 to 14:45" },
+    bookingEssential: false,
+    walkIn: true,
+    bookingNote: "Booking a sitting is advisable. Walk-ins are welcome, but not guaranteed.",
+    weekdaySessions: [
+      { start: "09:15", end: "10:45", label: "09:15 to 10:45" },
+      { start: "11:00", end: "12:30", label: "11:00 to 12:30" },
+      { start: "13:00", end: "14:30", label: "13:00 to 14:30" },
+    ],
+    weekendSessions: [
+      { start: "09:00", end: "10:30", label: "09:00 to 10:30" },
+      { start: "11:00", end: "12:30", label: "11:00 to 12:30" },
+      { start: "13:00", end: "14:30", label: "13:00 to 14:30" },
+      { start: "15:00", end: "16:30", label: "15:00 to 16:30" },
     ],
     adultsFree: "Adults go free",
     adultsPerChild: TO_CONFIRM,
@@ -144,7 +160,7 @@ export const site = {
     childrenPerAdult: TO_CONFIRM,
     sicknessWindowHours: "48",
     ownFood:
-      "Please don't bring food in where you can help it, as the café helps keep the doors open. Food for an allergy, medical need, specific diet or disability is absolutely fine. Baby food, bottles and milk are always welcome.",
+      "Only food and drink bought in the café can be eaten on site, except where it's needed for an allergy or a medical need.",
     allergen: "Tell us when you book, and have a word with the team when you arrive.",
     buggies: "Yes. Bring the pushchair in and park it up while you're with us.",
   },
@@ -173,8 +189,8 @@ export const site = {
         "Songs, movement and sensory play for toddlers. The same handmade rooms, at a pace that isn’t a free-for-all.",
     },
     {
-      id: "send-evenings",
-      name: "Ages 5+ evening SEND sessions",
+      id: "sen-evenings",
+      name: "Ages 5+ evening SEN sessions",
       cadence: "Weekly",
       ages: "Ages 5+",
       price: TO_CONFIRM,
@@ -218,7 +234,6 @@ export const site = {
       "Mickey and Minnie",
     ],
     sandwichBox: "Ham, cheese or tuna, crisps, yogurt, a fruit pot, chocolate and a drink.",
-    hotMeal: "Chicken nuggets, sausages or fish fingers, fries, beans or peas, and a drink.",
     extrasNote:
       "A bouncy castle, Miss Rachel or princess performers, and mascots can be arranged. We’ll price those with you.",
     otherThemesNote: "Fancy something else? We’ll talk it through and cost it properly.",
@@ -432,7 +447,7 @@ export const zones: Zone[] = [
     summary: "A red barn with white trim. The kind of farm a three-year-old would draw, then walk into.",
     detail:
       "A red barn with white trim, built out by hand. Role play, animals, and the everyday work of a very small farm shop.",
-    alt: "The red barn with white trim, sunflowers, a picket fence and toy tractors on the grass.",
+    alt: "The red barn with white trim, sunflowers, a yellow table and toy animals on the grass.",
     image: "/images/zones/the-farm.jpg",
     gallery: [
       {
@@ -508,7 +523,7 @@ export const faqGroups = [
       {
         id: "do-i-have-to-book",
         question: "Do I have to book, or can I just turn up?",
-        answer: `You'll need to book, sorry. We only take ${site.play.maxChildren} children per session so that it stays calm and everyone gets a proper go at everything, which does mean we can't take anyone on the door. The upside is you'll never turn up to find it heaving.`,
+        answer: `Booking a sitting is advisable. Walk-ins are welcome, but not guaranteed. We only take ${site.play.maxChildren} children per session so it stays calm. If that sitting is full we won't be able to squeeze you in.`,
       },
       {
         id: "more-than-one-child",
@@ -559,19 +574,18 @@ export const faqGroups = [
       {
         id: "when-open",
         question: "When are you open?",
-        answer: `${site.hours.days}, with three sessions a day. They run ${site.play.sessions.map((s) => s.label).join(", ").replace(/, ([^,]*)$/, ", and $1")}. ${site.hours.closed}.`,
+        answer: `${site.hours.days}. ${site.hours.closed}. Weekdays (${site.hours.weekdays}): ${site.play.weekdaySessions.map((s) => s.label).join(", ").replace(/, ([^,]*)$/, ", and $1")}. Weekends: ${site.play.weekendSessions.map((s) => s.label).join(", ").replace(/, ([^,]*)$/, ", and $1")}.`,
       },
       {
         id: "what-ages",
         question: "What ages is it for?",
-        answer:
-          "It's built for babies, toddlers and little ones who aren't at school yet, so roughly nought to five. Older brothers and sisters are welcome to come along too, but it's the little ones we've designed it all around.",
+        answer: site.audienceNote,
       },
       {
         id: "what-to-bring",
         question: "What should we bring?",
         answer:
-          "Socks for everyone, grown ups included, and that's honestly about it. There's a café on site so you don't need to pack drinks and snacks unless it's something specific for your child.",
+          "Socks for everyone, grown ups included, and that's honestly about it. There's a café on site, so drinks and snacks are bought here, unless your child needs their own for an allergy or a medical need.",
       },
       {
         id: "do-we-need-socks",
@@ -607,7 +621,7 @@ export const faqGroups = [
   {
     id: "food-and-drink",
     title: "Food and drink",
-    blurb: "What's on in the café, packed lunches, and allergies.",
+    blurb: "What's on in the café, and what you can bring in.",
     accent: "gold",
     items: [
       {
@@ -619,8 +633,7 @@ export const faqGroups = [
       {
         id: "own-food",
         question: "Can we bring our own food?",
-        answer:
-          "We'd ask you not to bring food in with you where you can help it, as the café is a big part of how we keep the doors open. That said, we completely understand that some children need their own food, whether that's an allergy, a medical need, a specific dietary requirement or a disability, and that's absolutely fine with us. Baby food, bottles and milk are always welcome, no need to ask.",
+        answer: site.policies.ownFood,
       },
       {
         id: "allergies",
@@ -632,12 +645,12 @@ export const faqGroups = [
   {
     id: "accessibility",
     title: "Accessibility and additional needs",
-    blurb: "SEND, quieter visits, and getting around the building.",
+    blurb: "SEN, quieter visits, and getting around the building.",
     accent: "teal",
     items: [
       {
-        id: "send-friendly",
-        question: "Are you SEND friendly?",
+        id: "sen-friendly",
+        question: "Are you SEN friendly?",
         answer:
           "Very much so, and it's something we care an awful lot about. We keep numbers low so it never gets overwhelming, and we've built a calm Sensory Space for when anyone needs a quieter moment. Dedicated evening sessions for children aged five and over are on the way. Keep an eye on Facebook and we'll shout as soon as dates are sorted.",
       },
@@ -651,7 +664,7 @@ export const faqGroups = [
         id: "building-accessible",
         question: "Is the building accessible?",
         answer:
-          "It is. We're all on the ground floor with no stairs to worry about, so there's nothing to lug a pushchair up or down.",
+          "It is. We're all on the ground floor with no stairs to worry about, so there's nothing to lug a pushchair up or down. We don't have a disabled toilet here. The closest one is at the bus station, about a three minute walk away.",
       },
       {
         id: "baby-changing",
@@ -682,7 +695,7 @@ export const faqGroups = [
         id: "what-classes",
         question: "What classes do you run?",
         answer:
-          "Classes are on the way. We're planning baby sensory, music and movement, toddler sensory sessions and evening SEND sessions for children aged five and over. Keep your eyes peeled on Facebook and we'll shout as soon as dates are sorted.",
+          "Classes are on the way. We're planning baby sensory, music and movement, toddler sensory sessions and evening SEN sessions for children aged five and over. Keep your eyes peeled on Facebook and we'll shout as soon as dates are sorted.",
       },
     ],
   },
@@ -730,7 +743,9 @@ export function formatAddress(separator = ", "): string {
 }
 
 export function sessionTimesLine(): string {
-  return site.play.sessions.map((s) => s.label).join(", ");
+  const weekdays = site.play.weekdaySessions.map((s) => s.label).join(" · ");
+  const weekends = site.play.weekendSessions.map((s) => s.label).join(" · ");
+  return `Weekdays (${site.hours.weekdays}): ${weekdays}. Weekends: ${weekends}.`;
 }
 
 export function childPriceLine(): string {
@@ -748,7 +763,7 @@ export const pages = {
     path: "/book",
     title: "Book a play session | Little Adventure Town, Bishop Auckland",
     description:
-      "Book a 90-minute play session at Little Adventure Town in Bishop Auckland. Tuesday to Sunday, three sessions a day. September deal: £5.95 a child. Adults go free. Booking essential, no walk-ins.",
+      "Book a 90-minute play session at Little Adventure Town in Bishop Auckland. Tuesday to Sunday. Three sittings on weekdays, four at the weekend. September deal: £5.95 a child. Adults go free. Booking a sitting is advisable. Walk-ins are welcome, but not guaranteed.",
   },
   whatsInside: {
     path: "/whats-inside",
@@ -772,7 +787,7 @@ export const pages = {
     path: "/faq",
     title: "FAQs | Little Adventure Town, Bishop Auckland",
     description:
-      "Booking, socks, the café, SEND, parties and how to find us. Straight answers for Little Adventure Town in Bishop Auckland.",
+      "Booking, socks, the café, SEN, parties and how to find us. Straight answers for Little Adventure Town in Bishop Auckland.",
   },
   contact: {
     path: "/contact",
