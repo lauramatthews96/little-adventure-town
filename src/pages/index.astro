@@ -23,48 +23,58 @@ import { site, hero } from "../config/site";
       />
     </div>
     <div class="home-hero-copy">
-      <ul class="hero-facts">
-        <li class="hero-facts-deal">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.8"></circle>
-            <path d="M12 8.25V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-          <span>
-            <DealBadge />
-            <span class="mt-0.5 block">{site.play.durationLabel}, {site.play.offer.summary}. Adults go free.</span>
-          </span>
-        </li>
-        <li>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4.5 20V10.5L12 5l7.5 5.5V20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-            <path d="M9.5 20v-6h5v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-          </svg>
-          <span>{site.audienceNote} SEN friendly, with sensory play.</span>
-        </li>
-        <li>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="4" y="5.5" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
-            <path d="M8 3.75v3.5M16 3.75v3.5M4 10h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-          </svg>
-          <span>
-            Opening {site.opening.date}.
-            <span class="hero-facts-times">
-              Weekdays ({site.hours.weekdays}): {site.play.weekdaySessions.map((s) => s.label).join(" · ")}
-            </span>
-            <span class="hero-facts-times">
-              Weekends: {site.play.weekendSessions.map((s) => s.label).join(" · ")}
-            </span>
-          </span>
-        </li>
-        <li>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M6.5 8.5h11a1.5 1.5 0 0 1 1.5 1.5v9l-3.2-1.6-3.3 1.6-3.3-1.6L5 19v-9a1.5 1.5 0 0 1 1.5-1.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-            <path d="M9 12.25h6M9 15.25h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-          </svg>
-          <span>{site.play.bookingNote}</span>
-        </li>
-      </ul>
+      <div class="hero-facts-deal">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.8"></circle>
+          <path d="M12 8.25V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span>
+          <DealBadge />
+          <span class="mt-0.5 block">{site.play.durationLabel}, {site.play.offer.summary}. Adults go free.</span>
+        </span>
+      </div>
     </div>
+    <ul class="hero-panels">
+      <li>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4.5 20V10.5L12 5l7.5 5.5V20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+          <path d="M9.5 20v-6h5v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+        </svg>
+        <p>{site.audienceNote} SEN friendly, with sensory play.</p>
+      </li>
+      <li>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6.5 8.5h11a1.5 1.5 0 0 1 1.5 1.5v9l-3.2-1.6-3.3 1.6-3.3-1.6L5 19v-9a1.5 1.5 0 0 1 1.5-1.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+          <path d="M9 12.25h6M9 15.25h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+        </svg>
+        <p>{site.play.bookingNote}</p>
+      </li>
+      <li>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="4" y="5.5" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
+          <path d="M8 3.75v3.5M16 3.75v3.5M4 10h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+        </svg>
+        <div>
+          <p>Opening {site.opening.date}.</p>
+          <div class="hero-hours">
+            <div class="hero-hours-group">
+              <p class="hero-hours-label">Weekdays</p>
+              <p class="hero-hours-days">{site.hours.weekdays}</p>
+              <ul>
+                {site.play.weekdaySessions.map((session) => <li>{session.label}</li>)}
+              </ul>
+            </div>
+            <div class="hero-hours-group">
+              <p class="hero-hours-label">Weekends</p>
+              <p class="hero-hours-days">{site.hours.weekends}</p>
+              <ul>
+                {site.play.weekendSessions.map((session) => <li>{session.label}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
     <div class="home-hero-actions">
       <a class="btn btn-primary btn-book-now" href="/book">BOOK NOW!</a>
       <a class="btn btn-secondary" href="/whats-inside">See what’s inside</a>

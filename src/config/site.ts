@@ -302,6 +302,49 @@ export const hero = {
   alt: "Six handmade rooms at Little Adventure Town: the farm barn, dinosaur volcano, the beach, the castle, under the sea, and sensory space.",
 };
 
+export const townHighlights = [
+  {
+    emoji: "🚀",
+    text: "Blast off into space and travel among the stars.",
+    href: "/whats-inside#space",
+  },
+  {
+    emoji: "🌊",
+    text: "Dive beneath the sea and discover an underwater world.",
+    href: "/whats-inside#under-the-sea",
+  },
+  {
+    emoji: "🦖",
+    text: "Explore a volcano and come face-to-face with dinosaurs.",
+    href: "/whats-inside#dinosaur",
+  },
+  {
+    emoji: "👑",
+    text: "Become a princess, prince, knight or anything you dream of being.",
+    href: "/whats-inside#the-castle",
+  },
+  {
+    emoji: "🐄",
+    text: "Visit the farm and get stuck into some countryside fun, no wellies required!",
+    href: "/whats-inside#the-farm",
+  },
+  {
+    emoji: "🏖️",
+    text: "Build castles on the beach and enjoy seaside adventures, whatever the weather.",
+    href: "/whats-inside#the-beach",
+  },
+  {
+    emoji: "🏴‍☠️",
+    text: "Become a pirate, hunt for hidden treasure and set sail across the seven seas.",
+    href: "/whats-inside#the-beach",
+  },
+  {
+    emoji: "☕",
+    text: "Grab a brew in the café and watch them wear themselves out.",
+    href: "/faq#food-and-drink-heading",
+  },
+] as const;
+
 export const zones: Zone[] = [
   {
     id: "under-the-sea",
@@ -557,11 +600,6 @@ export const faqGroups = [
         question: "What if I need to cancel?",
         answer:
           "Life with little ones rarely goes to plan. Let us know at least 24 hours before and we'll happily move you to another day or pop a credit on your account. Any later than that and we can't refund or move you, simply because the space has been held for you and it's usually too late for anyone else to take it. If something's genuinely gone wrong, do still get in touch and we'll see what we can do.",
-      },
-      {
-        id: "if-we-cancel",
-        question: "What if you have to cancel?",
-        answer: "You'll get a full refund or a move to another day, whichever suits you best.",
       },
     ],
   },

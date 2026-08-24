@@ -1,7 +1,6 @@
 ---
 import PhotoFrame from "./PhotoFrame.astro";
-import ZoneIcon from "./ZoneIcon.astro";
-import { zones, type Zone } from "../config/site";
+import { townHighlights, zones, type Zone } from "../config/site";
 
 interface Props {
   items?: Zone[];
@@ -31,13 +30,13 @@ const fascia: Record<Zone["accent"], string> = {
     <p class="town-sign-lede">
       Six handmade rooms, not a plastic frame. Wander from one little world to the next.
     </p>
-    <ol class="town-legend" aria-label="The six rooms">
+    <ol class="town-legend" aria-label="What you can do in town">
       {
-        items.map((zone) => (
+        townHighlights.map((item) => (
           <li>
-            <a class="zone-chip" href={`/whats-inside#${zone.id}`}>
-              <ZoneIcon id={zone.id} />
-              {zone.shortName}
+            <a class="town-highlight" href={item.href}>
+              <span class="town-highlight-emoji" aria-hidden="true">{item.emoji}</span>
+              <span>{item.text}</span>
             </a>
           </li>
         ))
