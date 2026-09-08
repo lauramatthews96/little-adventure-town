@@ -152,6 +152,12 @@ export const site = {
     iframeSrc: "https://bookwhen.com/littleadventuretown/iframe",
   },
 
+  /** Paste real IDs when ready. Scripts only load after cookie consent. */
+  tracking: {
+    googleAnalyticsId: TO_CONFIRM,
+    metaPixelId: TO_CONFIRM,
+  },
+
   policies: {
     cancellation:
       "Give us at least 24 hours' notice and we'll move you to another day or put a credit on your account. Later than that we can't refund or move you, because the space has been held. If something has genuinely gone wrong, still get in touch.",
@@ -270,6 +276,7 @@ export const footerNav = [
   { href: "/conditions", label: "Conditions of entry" },
   { href: "/booking-terms", label: "Booking terms" },
   { href: "/privacy", label: "Privacy" },
+  { href: "/cookies", label: "Cookies" },
 ] as const;
 
 export type ZoneId =
@@ -307,41 +314,49 @@ export const townHighlights = [
     emoji: "🚀",
     text: "Blast off into space and travel among the stars.",
     href: "/whats-inside#space",
+    accent: "sky-deep",
   },
   {
     emoji: "🌊",
     text: "Dive beneath the sea and discover an underwater world.",
     href: "/whats-inside#under-the-sea",
+    accent: "teal",
   },
   {
     emoji: "🦖",
     text: "Explore a volcano and come face-to-face with dinosaurs.",
     href: "/whats-inside#dinosaur",
+    accent: "coral",
   },
   {
     emoji: "👑",
     text: "Become a princess, prince, knight or anything you dream of being.",
     href: "/whats-inside#the-castle",
+    accent: "pink",
   },
   {
     emoji: "🐄",
     text: "Visit the farm and get stuck into some countryside fun, no wellies required!",
     href: "/whats-inside#the-farm",
+    accent: "meadow",
   },
   {
     emoji: "🏖️",
     text: "Build castles on the beach and enjoy seaside adventures, whatever the weather.",
     href: "/whats-inside#the-beach",
+    accent: "sunshine",
   },
   {
     emoji: "🏴‍☠️",
     text: "Become a pirate, hunt for hidden treasure and set sail across the seven seas.",
     href: "/whats-inside#the-beach",
+    accent: "sea",
   },
   {
     emoji: "☕",
     text: "Grab a brew in the café and watch them wear themselves out.",
     href: "/faq#food-and-drink-heading",
+    accent: "gold",
   },
 ] as const;
 
@@ -842,6 +857,12 @@ export const pages = {
     path: "/privacy",
     title: "Privacy policy | Little Adventure Town",
     description: "How Little Adventure Town Ltd uses personal information, in plain English. UK GDPR.",
+  },
+  cookies: {
+    path: "/cookies",
+    title: "Cookie policy | Little Adventure Town",
+    description:
+      "How cookies work on the Little Adventure Town website, including Google Analytics, the Meta Pixel, bookings and the map. Plain English, UK PECR.",
   },
   bookingTerms: {
     path: "/booking-terms",

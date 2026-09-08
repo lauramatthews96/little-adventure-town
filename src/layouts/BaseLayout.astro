@@ -6,6 +6,7 @@ import SkipLink from "../components/SkipLink.astro";
 import MobileStickyCta from "../components/MobileStickyCta.astro";
 import JsonLd from "../components/JsonLd.astro";
 import OpeningBanner from "../components/OpeningBanner.astro";
+import CookieBanner from "../components/CookieBanner.astro";
 import { site, pages, hero } from "../config/site";
 
 type PageKey = keyof typeof pages;
@@ -76,5 +77,6 @@ const showSticky = stickyCta && path !== "/book";
     </main>
     <Footer />
     {showSticky && <MobileStickyCta />}
+    <CookieBanner />
   </body>
 </html>

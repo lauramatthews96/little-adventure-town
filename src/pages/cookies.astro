@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { formatAddress, site } from "../config/site";
+---
+
+<BaseLayout page="cookies">
+  <article class="prose-page mx-auto px-4 py-10 md:px-6 md:py-16">
+    <PageHero eyebrow="UK PECR" accent="coral" mark="★">
+      <h1 slot="title">Cookie policy</h1>
+      <p>Plain English, for a small play café. Last updated 8 September 2026.</p>
+    </PageHero>
+
+    <h2>Who we are</h2>
+    <p>
+      {site.legalName} (company number {site.companyNumber}) trades as {site.name}. We run an indoor adventure play café at {formatAddress()}.
+    </p>
+    <p>
+      Questions about cookies: email <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>, use the form on the <a class="font-bold underline underline-offset-2" href="/contact">contact page</a>, or send us a message on <a class="font-bold underline underline-offset-2" href={site.social.facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a>. How we use personal information more generally is in our <a class="font-bold underline underline-offset-2" href="/privacy">privacy policy</a>.
+    </p>
+
+    <h2>What cookies are</h2>
+    <p>
+      Cookies are small text files a website can store on your device. Some are needed for a page to work. Others remember choices, measure visits, or help with advertising. Similar tools, such as pixels or local storage, can do a similar job.
+    </p>
+    <p>
+      UK law (the Privacy and Electronic Communications Regulations, and UK GDPR) says we should tell you about cookies, explain why they are used, and ask before we use any that are not strictly necessary.
+    </p>
+
+    <h2>Our approach</h2>
+    <p>
+      Some cookies are needed for the site to work. Others help us see how the site is used, and to measure our Facebook and Instagram ads. Those optional ones are Google Analytics and the Meta (Facebook) Pixel. They are not strictly necessary, so we only set them if you agree.
+    </p>
+    <p>
+      A cookie notice will ask you to accept or refuse analytics and advertising cookies. You can change your mind later in your browser settings, or by contacting us. Strictly necessary cookies, and the booking and map tools you choose to use, are covered below.
+    </p>
+
+    <h2>Cookies this site may use</h2>
+    <h3>Strictly necessary</h3>
+    <p>
+      Hosting and the contact and party enquiry forms run on Netlify. Those systems may use cookies or similar tools that are needed to keep the site secure, to stop spam, and to send your message. They are not used to build a picture of you for marketing.
+    </p>
+    <p>
+      Strictly necessary cookies do not need consent under UK cookie law.
+    </p>
+
+    <h3>Bookings and payments</h3>
+    <p>
+      Play sessions are booked through an embed from {site.booking.provider}. Payment is taken by {site.booking.payments}. When you open the booking page, or use the booking box, {site.booking.provider} and {site.booking.payments} may set their own cookies so they can show available sittings, keep the booking going, and take the payment. We do not see your full card number.
+    </p>
+    <p>
+      Those cookies belong to them, not to us. They are there to complete a booking you asked for, not as extra tracking we have added on top. You can read {site.booking.provider}’s notices on <a class="font-bold underline underline-offset-2" href="https://bookwhen.com/privacy" target="_blank" rel="noopener noreferrer">their privacy page</a>, and {site.booking.payments}’s on their <a class="font-bold underline underline-offset-2" href="https://stripe.com/gb/privacy" target="_blank" rel="noopener noreferrer">privacy</a> and <a class="font-bold underline underline-offset-2" href="https://stripe.com/gb/legal/cookies-policy" target="_blank" rel="noopener noreferrer">cookie</a> pages.
+    </p>
+    <p>
+      If you would rather not load the booking box on this site, use the link on the <a class="font-bold underline underline-offset-2" href="/book">book page</a> to open {site.booking.provider} in a new tab.
+    </p>
+
+    <h3>The map</h3>
+    <p>
+      The <a class="font-bold underline underline-offset-2" href="/visit">Visit us</a> page includes a map from OpenStreetMap so you can see where we are on Newgate Street. OpenStreetMap may set its own cookies when that map loads. Their privacy information is on the <a class="font-bold underline underline-offset-2" href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer">OpenStreetMap Foundation site</a>.
+    </p>
+    <p>
+      If you would rather not load that map, you can use the Google Maps or Apple Maps links on the same page instead.
+    </p>
+
+    <h3>Google Analytics</h3>
+    <p>
+      We use Google Analytics to understand how people find and use this website: which pages are read, roughly where a visit came from, and whether the site is working as it should. It does not tell us your name or that you booked a sitting. Typical cookies include <code>_ga</code> and <code>_ga_</code> followed by an ID, usually kept for up to two years.
+    </p>
+    <p>
+      These cookies are set by Google, in the United States, on our behalf. They only run if you accept analytics cookies. You can read Google’s notices on their <a class="font-bold underline underline-offset-2" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">privacy</a> and <a class="font-bold underline underline-offset-2" href="https://business.safety.google/privacy/" target="_blank" rel="noopener noreferrer">business data</a> pages.
+    </p>
+
+    <h3>Meta Pixel (Facebook and Instagram ads)</h3>
+    <p>
+      We use the Meta Pixel (sometimes called the Facebook Pixel) so we can see whether our Facebook and Instagram ads are working, and so we can show ads to people who are more likely to want a sitting. Typical cookies include <code>_fbp</code>, usually kept for about 90 days, and sometimes <code>_fbc</code> if you arrived from a Meta advert.
+    </p>
+    <p>
+      These cookies are set by Meta. They only run if you accept advertising cookies. Meta may also use this information for its own advertising. You can read Meta’s <a class="font-bold underline underline-offset-2" href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">privacy policy</a> and <a class="font-bold underline underline-offset-2" href="https://www.facebook.com/privacy/policies/cookies/" target="_blank" rel="noopener noreferrer">cookie policy</a>, and manage ads in your Facebook or Instagram settings.
+    </p>
+
+    <h3>Links to Facebook and Instagram</h3>
+    <p>
+      We also link to our Facebook and Instagram pages so you can get in touch. If you follow those links, Meta may set its own cookies on their websites as well. That is separate from the Pixel on this site, and sits under their policies.
+    </p>
+
+    <h2>How to control cookies</h2>
+    <p>
+      Use the cookie notice, or Cookie settings at the bottom of any page, to accept or refuse analytics and advertising cookies. Refusing them will not stop you booking a sitting or sending a message.
+    </p>
+    <p>
+      You can also block or delete cookies in your browser settings. Most browsers let you refuse cookies, clear the ones already there, or get a warning before a cookie is stored. How you do that depends on the browser, so look in its help pages, or at <a class="font-bold underline underline-offset-2" href="https://ico.org.uk/for-the-public/online/cookies/" target="_blank" rel="noopener noreferrer">the ICO’s cookie advice</a>.
+    </p>
+    <p>
+      Blocking strictly necessary cookies may stop a form from sending, or stop a booking from going through. That is a browser choice, not something we can override.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      If this policy changes, we will update this page and the date at the top. The current version is the one on this website.
+    </p>
+  </article>
+</BaseLayout>

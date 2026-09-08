@@ -34,7 +34,7 @@ const fascia: Record<Zone["accent"], string> = {
       {
         townHighlights.map((item) => (
           <li>
-            <a class="town-highlight" href={item.href}>
+            <a class="town-highlight" href={item.href} style={`--chip: var(--color-${item.accent})`}>
               <span class="town-highlight-emoji" aria-hidden="true">{item.emoji}</span>
               <span>{item.text}</span>
             </a>
