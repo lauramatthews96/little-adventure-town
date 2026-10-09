@@ -160,7 +160,7 @@ export const site = {
 
   policies: {
     cancellation:
-      "Give us at least 24 hours' notice and we'll move you to another day or put a credit on your account. Later than that we can't refund or move you, because the space has been held. If something has genuinely gone wrong, still get in touch.",
+      "Give us at least 24 hours' notice and we'll move you to another day or put a credit on your account. Later than that we can't refund or move you, because the space has been held.",
     socksRequired: true,
     supervisionRequired: true,
     childrenPerAdult: TO_CONFIRM,
@@ -614,7 +614,7 @@ export const faqGroups = [
         id: "if-i-cancel",
         question: "What if I need to cancel?",
         answer:
-          "Life with little ones rarely goes to plan. Let us know at least 24 hours before and we'll happily move you to another day or pop a credit on your account. Any later than that and we can't refund or move you, simply because the space has been held for you and it's usually too late for anyone else to take it. If something's genuinely gone wrong, do still get in touch and we'll see what we can do.",
+          "Let us know at least 24 hours before and we'll happily move you to another day or pop a credit on your account. Any later than that and we can't refund or move you, because the space has been held for you and it's usually too late for anyone else to take it.",
       },
     ],
   },
