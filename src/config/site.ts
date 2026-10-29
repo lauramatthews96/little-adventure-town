@@ -159,8 +159,13 @@ export const site = {
   },
 
   policies: {
-    cancellation:
-      "Give us at least 24 hours' notice and we'll move you to another day or put a credit on your account. Later than that we can't refund or move you, because the space has been held.",
+    cancellationPlay:
+      "For play sessions, give us at least 48 hours' notice and we'll move you to another sitting or put a credit on your account. You can move a play session yourself on Bookwhen up to 48 hours before. Later than that we can't refund, credit or move you, because the space has been held.",
+    cancellationEvents:
+      "For special events, we need 7 days' notice for a credit on your account. Event tickets are not refundable in the 7 days before the event, unless we sell the ticket on.",
+    get cancellation() {
+      return `${this.cancellationPlay} ${this.cancellationEvents}`;
+    },
     socksRequired: true,
     supervisionRequired: true,
     childrenPerAdult: TO_CONFIRM,
@@ -613,8 +618,7 @@ export const faqGroups = [
       {
         id: "if-i-cancel",
         question: "What if I need to cancel?",
-        answer:
-          "Let us know at least 24 hours before and we'll happily move you to another day or pop a credit on your account. Any later than that and we can't refund or move you, because the space has been held for you and it's usually too late for anyone else to take it.",
+        answer: site.policies.cancellation,
       },
     ],
   },
@@ -867,7 +871,8 @@ export const pages = {
   bookingTerms: {
     path: "/booking-terms",
     title: "Booking terms | Little Adventure Town",
-    description: "Booking terms and conditions for Little Adventure Town play sessions, including cancellations.",
+    description:
+      "Booking terms and conditions for Little Adventure Town play sessions and special events, including cancellations.",
   },
   houseRules: {
     path: "/house-rules",

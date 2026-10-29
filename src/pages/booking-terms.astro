@@ -8,7 +8,7 @@ import { childPriceLine, site } from "../config/site";
   <article class="prose-page mx-auto px-4 py-10 md:px-6 md:py-16">
     <PageHero eyebrow="The small print" accent="pink" mark="★">
       <h1 slot="title">Booking terms</h1>
-      <p>These cover play sessions booked through this website and Bookwhen. Last updated 9 October 2026.</p>
+      <p>These cover play sessions and special event tickets booked through this website and Bookwhen. Last updated 29 October 2026.</p>
     </PageHero>
 
     <h2>The booking</h2>
@@ -26,7 +26,13 @@ import { childPriceLine, site } from "../config/site";
 
     <h2>Cancellations and refunds</h2>
     <p>
-      {site.policies.cancellation} If we have to cancel, you will get a full refund or a move to another day, whichever suits you best.
+      {site.policies.cancellationPlay}
+    </p>
+    <p>
+      {site.policies.cancellationEvents}
+    </p>
+    <p>
+      If we have to cancel, you will get a full refund or a move to another day, whichever suits you best.
     </p>
 
     <h2>Arriving and late</h2>
