@@ -160,9 +160,9 @@ export const site = {
 
   policies: {
     cancellationPlay:
-      "For play sessions, give us at least 48 hours' notice and we'll move you to another sitting or put a credit on your account. You can move a play session yourself on Bookwhen up to 48 hours before. Later than that we can't refund, credit or move you, because the space has been held.",
+      "Need to change a play session? Let us know at least 48 hours before and we'll happily move you to another sitting or pop a credit on your account. You can move it yourself on Bookwhen in that same window, if that's easier. Later than that we can't refund, credit or move you, simply because the space has been held for you.",
     cancellationEvents:
-      "For special events, we need 7 days' notice for a credit on your account. Event tickets are not refundable in the 7 days before the event, unless we sell the ticket on.",
+      "For special events we need 7 days' notice, and then we'll pop a credit on your account. Closer than that, we can't refund the ticket, unless we manage to sell it on.",
     get cancellation() {
       return `${this.cancellationPlay} ${this.cancellationEvents}`;
     },
